@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}" >
+    tools:context="${relativePackage}.${activityClass}"
+    android:background="#ff0ccefe">
 
     <EditText
         android:id="@+id/username"
@@ -13,7 +14,8 @@
         android:layout_marginTop="154dp"
         android:hint="Enter Username"
         android:ems="10"
-        android:inputType="text" >
+        android:inputType="text"
+        android:background="#ffffffff">
 
         <requestFocus />
     </EditText>
@@ -22,19 +24,24 @@
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
         android:hint="Enter Password"
-        android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:background="#ffffffff"
+        android:layout_below="@+id/username"
+        android:layout_alignLeft="@+id/username"
+        android:layout_alignStart="@+id/username"
+        android:layout_marginTop="36dp" />
 
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/password"
+        android:text="Login"
         android:layout_below="@+id/password"
-        android:text="Login" />
+        android:layout_alignLeft="@+id/password"
+        android:layout_alignStart="@+id/password"
+        android:layout_marginTop="37dp" />
 
     <Button
         android:id="@+id/signUpButton"
