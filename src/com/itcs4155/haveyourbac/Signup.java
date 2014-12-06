@@ -7,11 +7,13 @@ import com.parse.SignUpCallback;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -34,23 +36,35 @@ public class Signup extends Activity {
         	
         	public void onClick(View view){
         		
+        		//getting value from Radio Button
+        		int id= gender.getCheckedRadioButtonId();
+				View radioButton = gender.findViewById(id);
+				int radioId = gender.indexOfChild(radioButton);
+				RadioButton btn = (RadioButton) gender.getChildAt(radioId);
+				String selection = (String) btn.getText();
+				
+				//Changing Weight into a number
+				String weightNum = weight.getText().toString();
+        		
         		ParseUser user = new ParseUser();
         		user.setUsername(username.getText().toString());
         		user.setPassword(password.getText().toString());
         		user.setEmail(email.getText().toString());
-//        		user.put("weight", weight.getText());
-//        		user.put("gender", gender.getContext().toString());
-                //balksdfjasdf
+        		user.put("weight", weightNum);
+        		user.put("gender", selection);
+        		Log.d("WEIGHT", weightNum);
+        		Log.d("Gender", selection);
+               
         		user.signUpInBackground(new SignUpCallback() {
         			  public void done(ParseException e) {
         			    if (e == null) {
         			      // Hooray! Let them use the app now.
         			    	Toast.makeText(getBaseContext(), "User Created!", Toast.LENGTH_LONG).show();
-//        			    	finish();
+        			    	finish();
         			    } else {
         			      // Sign up didn't succeed. Look at the ParseException
         			      // to figure out what went wrong
-        			    	Toast.makeText(getBaseContext(), "Something Fucked up, please try again", Toast.LENGTH_LONG).show();
+        			    	Toast.makeText(getBaseContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
         			    }
         			  }
         			});

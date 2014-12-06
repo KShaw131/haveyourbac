@@ -9,8 +9,6 @@ import com.parse.SignUpCallback;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,7 +36,7 @@ public class UserLogin extends Activity {
         			  public void done(ParseUser user, ParseException e) {
         			    if (user != null) {
         			      // Hooray! The user is logged in.
-        			    	Toast.makeText(getBaseContext(), "Login Successful!!", Toast.LENGTH_LONG).show();
+        			    	Toast.makeText(getBaseContext(), "Welcome "+usernameText.getText().toString()+"!", Toast.LENGTH_LONG).show();
         			    	//goto MyTab activity if login is successful
 //        			    	Intent intent = new Intent(getBaseContext(), MyTab.class);
 //        			    	startActivity(intent);
