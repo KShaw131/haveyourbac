@@ -20,9 +20,9 @@ public class UserLogin extends Activity {
 		
 		
 		ParseUser user = new ParseUser();
-		user.setUsername("my name");
-		user.setPassword("my pass");
-		user.setEmail("email@example.com");
+		user.setUsername("Tim");    //my commits (Tim)
+		user.setPassword("mypass");
+		user.setEmail("tim@myemail.com");
         
 		user.signUpInBackground(new SignUpCallback() {
 			  public void done(ParseException e) {
