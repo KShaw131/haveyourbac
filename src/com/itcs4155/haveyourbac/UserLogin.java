@@ -38,8 +38,8 @@ public class UserLogin extends Activity {
         			      // Hooray! The user is logged in.
         			    	Toast.makeText(getBaseContext(), "Welcome "+usernameText.getText().toString()+"!", Toast.LENGTH_LONG).show();
         			    	//goto MyTab activity if login is successful
-//        			    	Intent intent = new Intent(getBaseContext(), MyTab.class);
-//        			    	startActivity(intent);
+        			    	Intent intent = new Intent(getBaseContext(), MyTab.class);
+        			    	startActivity(intent);
         			    } else {
         			      // Signup failed. Look at the ParseException to see what happened.
         			    	Toast.makeText(getBaseContext(), "Login Failed. Please try again!", Toast.LENGTH_LONG).show();

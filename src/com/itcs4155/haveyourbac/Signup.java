@@ -52,8 +52,6 @@ public class Signup extends Activity {
         		user.setEmail(email.getText().toString());
         		user.put("weight", weightNum);
         		user.put("gender", selection);
-        		Log.d("WEIGHT", weightNum);
-        		Log.d("Gender", selection);
                
         		user.signUpInBackground(new SignUpCallback() {
         			  public void done(ParseException e) {
