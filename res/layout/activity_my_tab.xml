@@ -6,15 +6,6 @@
     android:background="#3498db"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/button1"
-        android:contentDescription="@string/uberlogo"
-        android:src="@drawable/uber_logo" />
-
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -55,5 +46,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="@string/choose_drink" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_toLeftOf="@+id/button1"
+        android:contentDescription="@string/uberlogo"
+        android:src="@drawable/uber_logo" />
 
 </RelativeLayout>
