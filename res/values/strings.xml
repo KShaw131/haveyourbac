@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Have Your BAC</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="splash">HaveYourBAC is an application intended for entertainment purposes only.  HaveYourBAC should not be used in place of a Breathalyzer, nor are the calculations promised to be more accurate.  Remember to always drink responsibly, and NEVER drink and drive.
+
+By clicking “Agree”, you understand that HaveYourBAC and any of its subsidiaries are not responsible for any actions you take during the usage of this application.</string>
+    <string name="agree">Agree</string>
+    <string name="title_activity_user_login">UserLogin</string>
+    
+</resources>
