@@ -40,7 +40,7 @@ public class Signup extends Activity {
         		user.setEmail(email.getText().toString());
 //        		user.put("weight", weight.getText());
 //        		user.put("gender", gender.getContext().toString());
-                
+                //balksdfjasdf
         		user.signUpInBackground(new SignUpCallback() {
         			  public void done(ParseException e) {
         			    if (e == null) {
