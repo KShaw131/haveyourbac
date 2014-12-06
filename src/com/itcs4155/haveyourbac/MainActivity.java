@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
         //Setting application id and client key
         Parse.initialize(this, "WxvvNBepff4Mh6v2PzR1SRHtcuibnbu76hxfJnuq", "zHl8ntxqYMpnAEfndojfroqo7TLgbOiYDGdJ6Hjf");
         
+        //Subscribing app to receive push notifications from Parse
         ParsePush.subscribeInBackground("", new SaveCallback() {
         	  @Override
         	  public void done(ParseException e) {
@@ -35,10 +36,10 @@ public class MainActivity extends Activity {
         	  }
         	});
         
-        
         ParseInstallation.getCurrentInstallation().saveInBackground();
         ParsePush.subscribeInBackground("HaveYourBAC");
         
+        //Button to goto login screen
         final Button agree = (Button)findViewById(R.id.agree);
 		
         agree.setOnClickListener(new View.OnClickListener(){
