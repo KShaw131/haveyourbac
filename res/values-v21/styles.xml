@@ -1,0 +1,20 @@
+<resources>
+
+    <!--
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    -->
+     <style name="AppTheme" parent="android:Theme.Material">
+    <!-- Main theme colors -->
+    <!--   your app branding color for the app bar -->
+    <item name="android:colorPrimary">#3498db</item>
+    <!--   darker variant for the status bar and contextual app bars -->
+    <item name="android:colorPrimaryDark">#2980b9</item>
+    <!--   theme UI controls like checkboxes and text fields -->
+    <item name="android:colorAccent">#95a5a6</item>
+    <item name="android:colorBackground">#2c3e50</item>
+    <item name="android:textColorPrimary">#bdc3c7</item>
+  </style>
+
+</resources>
