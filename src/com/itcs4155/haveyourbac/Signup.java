@@ -3,13 +3,8 @@ package com.itcs4155.haveyourbac;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
-
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,6 +49,7 @@ public class Signup extends Activity {
         		user.put("gender", selection);
                
         		user.signUpInBackground(new SignUpCallback() {
+        			
         			  public void done(ParseException e) {
         			    if (e == null) {
         			      // Hooray! Let them use the app now.
@@ -62,14 +58,12 @@ public class Signup extends Activity {
         			    } else {
         			      // Sign up didn't succeed. Look at the ParseException
         			      // to figure out what went wrong
-        			    	Toast.makeText(getBaseContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
+        			    	Toast.makeText(getBaseContext(), "Something went wrong. Please try again!", Toast.LENGTH_LONG).show();
         			    }
         			  }
         			});
-        		
         	}
-        
-      });
+		});
 		
 		cancel.setOnClickListener(new View.OnClickListener(){
         	
