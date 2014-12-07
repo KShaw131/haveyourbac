@@ -33,9 +33,11 @@ public class MyTab extends Activity {
         		i.addCategory(Intent.CATEGORY_LAUNCHER);
         		startActivity(i);
         		} catch (PackageManager.NameNotFoundException e) {
-        			
-        			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=pub:com.ubercab") ) );
-        		    
+        			Intent intent = new Intent();
+        	        intent.setAction(Intent.ACTION_VIEW);
+        	        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        	        intent.setData(Uri.parse("market://details?id=com.android.example"));
+        	        startActivity(intent);
         		}     		
         	}
         
