@@ -26,6 +26,19 @@ public class MyTab extends Activity {
     	}
     
   });
+		 //Button to goto close tab screen
+        final Button closeTab = (Button)findViewById(R.id.closeMe);
+		
+        closeTab.setOnClickListener(new View.OnClickListener(){
+        	
+        	public void onClick(View view){
+        		//Used to goto my UserLoginPage
+        		Intent intent = new Intent(getBaseContext(), CloseTabScreen.class);
+        		startActivity(intent);
+        		
+        	}
+        
+      });
 		
 		final ImageButton uber = (ImageButton)findViewById(R.id.uberButton);
 		

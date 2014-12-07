@@ -12,5 +12,8 @@
     <string name="enter_email">Enter Email</string>
     <string name="enter_username">Enter Username</string>
     <string name="title_activity_choose_drink">ChooseDrink</string>
+    <string name="title_activity_close_tab_screen">CloseTabScreen</string>
+    <string name="thank_you_for_using_have_your_bac_">Thank you for using Have Your BAC!</string>
+    <string name="close_tab">Close Tab</string>
 
 </resources>
