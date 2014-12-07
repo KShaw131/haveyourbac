@@ -9,5 +9,6 @@ By clicking “Agree”, you understand that HaveYourBAC and any of its subsidia
     <string name="agree">Agree</string>
     <string name="title_activity_user_login">UserLogin</string>
     <string name="title_activity_signup">Signup</string>
+    <string name="title_activity_my_tab">MyTab</string>
 
 </resources>

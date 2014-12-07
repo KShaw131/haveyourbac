@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myTabBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3498db"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/uberButton"
+        android:minHeight="100dip"
+        android:text="Close Tab" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:text="BAC Level"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#34495e"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/myTabHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/uberButton"
+        android:layout_alignParentTop="true"
+        android:text="My Tab"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#34495e"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myTabHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Choose Drink" />
+
+    <ImageButton
+        android:id="@+id/uberButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:contentDescription="uber button"
+        android:src="@drawable/uber_logo" />
+
+</RelativeLayout>

@@ -20,7 +20,7 @@
 
     <!--
   IMPORTANT: Change "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the lines below
-  to match your app's package name + ".permission.C2D_MESSAGE".
+  to match your app's package name + ".permission.C2D_MESSAGE".
     -->
     <permission
         android:name="com.itcs4155.haveyourbac.permission.C2D_MESSAGE"
@@ -30,7 +30,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/bac_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -62,7 +62,7 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-<!--       IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name. -->
+                <!-- IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name. -->
                 <category android:name="com.itcs4155.haveyourbac" />
             </intent-filter>
         </receiver>
@@ -79,6 +79,10 @@
         <activity
             android:name=".Signup"
             android:label="@string/title_activity_signup" >
+        </activity>
+        <activity
+            android:name=".MyTab"
+            android:label="@string/title_activity_my_tab" >
         </activity>
     </application>
 
