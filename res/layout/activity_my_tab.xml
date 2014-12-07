@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/imageButton1"
+        android:layout_alignTop="@+id/uberButton"
         android:minHeight="100dip"
         android:text="Close Tab" />
 
@@ -31,7 +31,7 @@
         android:id="@+id/myTabHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageButton1"
+        android:layout_alignLeft="@+id/uberButton"
         android:layout_alignParentTop="true"
         android:text="My Tab"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -48,7 +48,7 @@
         android:text="Choose Drink" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/uberButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
