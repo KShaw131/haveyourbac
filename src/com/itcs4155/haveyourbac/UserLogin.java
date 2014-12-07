@@ -1,11 +1,8 @@
 package com.itcs4155.haveyourbac;
 
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.SignUpCallback;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
