@@ -36,7 +36,7 @@ public class MyTab extends Activity {
         			Intent intent = new Intent();
         	        intent.setAction(Intent.ACTION_VIEW);
         	        intent.addCategory(Intent.CATEGORY_BROWSABLE);
-        	        intent.setData(Uri.parse("market://details?id=com.android.example"));
+        	        intent.setData(Uri.parse("market://details?id=com.ubercab"));
         	        startActivity(intent);
         		}     		
         	}
