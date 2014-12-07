@@ -7,13 +7,13 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/closeMe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/uberButton"
         android:minHeight="100dip"
-        android:text="Close Tab" />
+        android:text="@string/close_tab" />
 
     <TextView
         android:id="@+id/textView2"
