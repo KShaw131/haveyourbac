@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}"
-    android:background="#ff0ccefe">
+    android:background="#e74c3c"
+    tools:context="${relativePackage}.${activityClass}" >
 
     <Button
         android:id="@+id/agree"
@@ -11,28 +11,29 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
-        android:text="@string/agree"
-        android:clickable="false" />
+        android:layout_marginBottom="23dp"
+        android:clickable="false"
+        android:text="@string/agree" />
 
     <TextView
         android:id="@+id/splashText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/agree"
         android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="#ffffffff"
         android:gravity="center"
         android:text="@string/splash"
         android:textColor="#000000"
-        android:textSize="12sp"
-        android:background="#ffffffff" />
+        android:textSize="16sp" />
 
     <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/splash_icon"
-        android:src="@drawable/bac_icon"
-        android:layout_above="@+id/splashText"
-        android:layout_centerInParent="true" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:src="@drawable/bac_icon_nobackground" />
 
 </RelativeLayout>

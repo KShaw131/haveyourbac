@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="21"/>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -20,7 +20,7 @@
 
     <!--
   IMPORTANT: Change "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the lines below
-  to match your app's package name + ".permission.C2D_MESSAGE".
+  to match your app's package name + ".permission.C2D_MESSAGE".
     -->
     <permission
         android:name="com.itcs4155.haveyourbac.permission.C2D_MESSAGE"

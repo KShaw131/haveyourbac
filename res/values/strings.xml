@@ -10,5 +10,8 @@ By clicking “Agree”, you understand that HaveYourBAC and any of its subsidia
     <string name="title_activity_user_login">UserLogin</string>
     <string name="title_activity_signup">Signup</string>
     <string name="title_activity_my_tab">MyTab</string>
+    <string name="create_username">Create Username</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_username">Enter Username</string>
 
 </resources>

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#3498db"
     tools:context="${relativePackage}.${activityClass}" >
 
     <EditText
@@ -11,9 +12,10 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="154dp"
-        android:hint="Enter Username"
         android:ems="10"
-        android:inputType="text" >
+        android:hint="@string/enter_username"
+        android:inputType="text"
+        android:textColorHint="#34495e" >
 
         <requestFocus />
     </EditText>
@@ -23,10 +25,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/username"
-        android:hint="Enter Password"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:textColorHint="#34495e" />
 
     <Button
         android:id="@+id/loginButton"
@@ -34,7 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/password"
         android:layout_below="@+id/password"
-        android:text="Login" />
+        android:text="Login"
+        android:textColorHint="#34495e" />
 
     <Button
         android:id="@+id/signUpButton"
@@ -43,6 +47,15 @@
         android:layout_alignBaseline="@+id/loginButton"
         android:layout_alignBottom="@+id/loginButton"
         android:layout_alignRight="@+id/password"
-        android:text="Sign Up" />
+        android:text="Sign Up"
+        android:textColorHint="#34495e" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/bac_icon_large" />
 
 </RelativeLayout>
