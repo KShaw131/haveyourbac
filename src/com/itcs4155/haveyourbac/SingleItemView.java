@@ -55,7 +55,7 @@ final Button add = (Button)findViewById(R.id.addDrink);
 				
 				public void onClick(View arg0) {
 					Intent intent = new Intent(getBaseContext(), MyTab.class);
-					intent.putExtra("beer", txtbeer.getText());
+					intent.putExtra("drink", txtbeer.getText());
 					intent.putExtra("brand", txtbrand.getText());
 					intent.putExtra("alcoholContent", txtalcoholcontent.getText());
 					startActivity(intent);

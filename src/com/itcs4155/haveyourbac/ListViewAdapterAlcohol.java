@@ -56,7 +56,7 @@ public class ListViewAdapterAlcohol extends BaseAdapter {
 		final ViewHolder holder;
 		if (view == null) {
 			holder = new ViewHolder();
-			view = inflater.inflate(R.layout.listview_item, null);
+			view = inflater.inflate(R.layout.alcohol_listview_item, null);
 			// Locate the TextViews in listview_item.xml
 			holder.drink = (TextView) view.findViewById(R.id.drink);
 			holder.type = (TextView) view.findViewById(R.id.type);
@@ -79,7 +79,7 @@ public class ListViewAdapterAlcohol extends BaseAdapter {
 			@Override
 			public void onClick(View arg0) {
 				// Send single item click data to SingleItemView Class
-				Intent intent = new Intent(context, SingleItemView.class);
+				Intent intent = new Intent(context, SingleItemViewAlcohol.class);
 				// Pass all data rank
 				intent.putExtra("drink",
 						(Alcohollist.get(position).getDrink()));

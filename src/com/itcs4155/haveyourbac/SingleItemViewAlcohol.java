@@ -19,7 +19,7 @@ public class SingleItemViewAlcohol extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Get the view from singleitemview.xml
-		setContentView(R.layout.activity_single_item_view);
+		setContentView(R.layout.activity_single_item_view_alcohol);
  
 		Intent i = getIntent();
 		// Get the result of rank
@@ -48,15 +48,15 @@ public class SingleItemViewAlcohol extends Activity {
 		// Passes flag images URL into ImageLoader.class
 		//imageLoader.DisplayImage(flag, imgflag);
 		
-final Button cancel = (Button)findViewById(R.id.cancelDrink);
-final Button add = (Button)findViewById(R.id.addDrink);
+final Button cancel = (Button)findViewById(R.id.cancelAlcohol);
+final Button add = (Button)findViewById(R.id.addAlcohol);
 
 			add.setOnClickListener(new View.OnClickListener(){
 				
 				public void onClick(View arg0) {
 					Intent intent = new Intent(getBaseContext(), MyTab.class);
 					intent.putExtra("drink", txtdrink.getText());
-					intent.putExtra("type", txttype.getText());
+					intent.putExtra("brand", txttype.getText());
 					intent.putExtra("alcoholContent", txtalcoholcontent.getText());
 					startActivity(intent);
 				}

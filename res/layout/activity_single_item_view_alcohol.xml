@@ -61,7 +61,7 @@
         android:id="@+id/cancelAlcohol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/addDrink"
+        android:layout_below="@+id/addAlcohol"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="63dp"
         android:text="Cancel" />
