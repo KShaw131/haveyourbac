@@ -39,15 +39,15 @@ public class MyTab extends Activity {
 		txtalcoholcontent.setText(alcoholContent);
 
 
-		if (drink!=null){
-			Calculator calc = new Calculator();
-			double value = calc.calculatedBAC();
-			bacValue.setText(value);
-		}else{
-			double ozOfAlch = 0;
-			Time now = new Time();
-			now.setToNow();
-		}
+//		if (drink!=null){
+//			Calculator calc = new Calculator();
+//			double value = calc.calculatedBAC();
+//			bacValue.setText(value);
+//		}else{
+//			double ozOfAlch = 0;
+//			Time now = new Time();
+//			now.setToNow();
+//		}
 		
 
 
