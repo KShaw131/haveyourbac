@@ -3,7 +3,7 @@
     android:layout_height="fill_parent" >
  
     <TextView
-        android:id="@+id/beerlabel"
+        android:id="@+id/winelabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
@@ -14,14 +14,14 @@
         android:id="@+id/beer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/beerlabel"
+        android:layout_toRightOf="@+id/winelabel"
         android:textSize="20sp" />
  
     <TextView
         android:id="@+id/brandlabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/beerlabel"
+        android:layout_below="@+id/winelabel"
         android:textStyle="bold"
         android:text="Brand:	"
         android:textSize="20sp" />

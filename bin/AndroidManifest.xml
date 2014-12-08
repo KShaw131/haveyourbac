@@ -3,11 +3,10 @@
     package="com.itcs4155.haveyourbac"
     android:versionCode="1"
     android:versionName="1.0" >
-  
-    
+
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="21"/>
+        android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -89,7 +88,7 @@
             android:name=".CloseTabScreen"
             android:label="@string/title_activity_close_tab_screen" >
         </activity>
-         <activity
+        <activity
             android:name=".DrinkList"
             android:label="@string/title_activity_drink_list" >
         </activity>
@@ -97,10 +96,20 @@
             android:name=".SingleItemView"
             android:label="@string/title_activity_single_item_view" >
         </activity>
-        
-        <!-- replace @drawable/push_icon with your push icon identifier -->
-		<meta-data android:name="com.parse.push.notification_icon" android:resource="@drawable/push_icon1"/>
 
+        <!-- replace @drawable/push_icon with your push icon identifier -->
+        <meta-data
+            android:name="com.parse.push.notification_icon"
+            android:resource="@drawable/push_icon1" />
+
+        <activity
+            android:name=".WineList"
+            android:label="@string/title_activity_wine_list" >
+        </activity>
+        <activity
+            android:name=".SingleItemViewWine"
+            android:label="@string/title_activity_single_item_view_wine" >
+        </activity>
     </application>
 
 </manifest>
