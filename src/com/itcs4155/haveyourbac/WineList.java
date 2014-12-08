@@ -6,7 +6,10 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.ListView;
  
 import com.parse.ParseException;
@@ -21,6 +24,7 @@ public class WineList extends Activity {
 	ProgressDialog wProgressDialog;
 	ListViewAdapterWine adapter2;
 	private List<Wine> Winelist = null;
+	EditText inputSearch;
  
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,30 @@ public class WineList extends Activity {
 		setContentView(R.layout.activity_wine_list);
 		// Execute RemoteDataTask AsyncTask
 		new RemoteDataTask().execute();
+		
+		inputSearch = (EditText) findViewById(R.id.searchTextWine);
+		
+		 inputSearch.addTextChangedListener(new TextWatcher() {
+             
+	            @Override
+	            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+	                // When user changed the Text
+	            	adapter2.getFilter().filter(cs); 
+	            }
+	             
+	            @Override
+	            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+	                    int arg3) {
+	                // TODO Auto-generated method stub
+	                 
+	            }
+	             
+	            @Override
+	            public void afterTextChanged(Editable arg0) {
+	                // TODO Auto-generated method stub                          
+	            }
+	        });
+		 
 	}
  
 	// RemoteDataTask AsyncTask
