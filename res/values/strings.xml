@@ -12,5 +12,7 @@
     <string name="enter_email">Enter Email</string>
     <string name="enter_username">Enter Username</string>
     <string name="title_activity_choose_drink">ChooseDrink</string>
+    <string name="title_activity_drink_list">DrinkList</string>
+    <string name="title_activity_single_item_view">SingleItemView</string>
 
 </resources>

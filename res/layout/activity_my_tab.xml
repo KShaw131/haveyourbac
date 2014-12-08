@@ -7,25 +7,13 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/cancelDrink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/uberButton"
         android:minHeight="100dip"
         android:text="Close Tab" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/chooseDrinkButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
-        android:text="BAC Level"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#34495e"
-        android:textSize="50sp" />
 
     <TextView
         android:id="@+id/myTabHeader"
@@ -54,5 +42,38 @@
         android:layout_alignParentBottom="true"
         android:contentDescription="uber button"
         android:src="@drawable/uber_logo" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chooseDrinkButton"
+        android:layout_centerHorizontal="true"
+        android:text="BAC Level"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#34495e"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/latestBeer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="18dp" />
+
+    <TextView
+        android:id="@+id/latestBrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/latestBeer"
+        android:layout_below="@+id/latestBeer" />
+
+    <TextView
+        android:id="@+id/latestAlcoholContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/latestBrand"
+        android:layout_below="@+id/latestBrand" />
 
 </RelativeLayout>
