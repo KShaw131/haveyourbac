@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -19,42 +20,64 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Calculator {
+	
+	double bac;
+	
+	public void setBac(double bac){
+		
+		this.bac = bac;
+	}
+	
+	public double calcMe(double alcoholInOunces)
+	{
+		calculatedBAC(alcoholInOunces);
+		return bac;
+	}
 
-	public String calculatedBAC(){
+	public void calculatedBAC(final double alcoholInOunces){
 
 		ParseUser currentUser = ParseUser.getCurrentUser();
 		if (currentUser != null) {
 			// get weight and gender and save them to global variables
-			ParseQuery<ParseObject> userInfoQuery = ParseQuery.getQuery("User");
+			ParseQuery<ParseObject> userInfoQuery = ParseQuery.getQuery("_User");
 			String user = currentUser.getUsername();
-			userInfoQuery.whereEqualTo("weight", user);
-
-;			Log.d(user, "This should be the username");
+			userInfoQuery.whereEqualTo("username", user);
+			//			userInfoQuery.whereEqualTo("weight", user);
+			Log.d(user, "This should be the username");
 			
-			userInfoQuery.findInBackground(new FindCallback<ParseObject>() {
-				public void done(List<ParseObject> results, ParseException e) {
-					if(e == null){
-						Log.d("This should be the results size:", "Is this " + results.size() + " end");
-						Log.d("Here is results:", results.toString());
+			
+
+			userInfoQuery.getFirstInBackground(new GetCallback<ParseObject>()
+					{
+				public void done(ParseObject object, ParseException e)
+				{
+					if (object == null) 
+					{
+						Log.d(";(", "Didnt work");
+					} 
+					else 
+					{
+						String weight = object.getString("weight").toString();
+						String gender = object.getString("gender").toString();
+
+						double doubleWeight = Double.parseDouble(weight);
+
+						double ratio;
+
+						if(gender.equals("Male")){
+							ratio = 0.73;
+						} else{
+							ratio = 0.66;
+						}
+
+						//setBac(alcoholInOunces* 5.14/doubleWeight * ratio); //- (.015 * timeTaken);
+						
 					}
 				}
-				
-			});
-		} else {
-			// show the signup or login screen
+					});	
+
+		}else{
+
 		}
-//		double ratio;
-//
-//		bac = (alcohol * 5.14/weight * ratio) - (.015 * timeTaken);
-//
-//
-//		if(genderString.equals("Male")){
-//			double ratio = 0.73;
-//		} else{
-//			ratio = 0.66;
-//		}
-		return null;
-
-
 	}
 }

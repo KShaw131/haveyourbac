@@ -1,11 +1,17 @@
 package com.itcs4155.haveyourbac;
 
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.format.Time;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -18,105 +24,121 @@ public class MyTab extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_tab);
-
+		
 		Intent i = getIntent();
 		// Get the result of rank
-		String drink = i.getStringExtra("drink");
+		String beer = i.getStringExtra("beer");
 		// Get the result of country
 		String brand = i.getStringExtra("brand");
 		// Get the result of population
 		String alcoholContent = i.getStringExtra("alcoholContent");
-
-		final TextView txtdrink = (TextView) findViewById(R.id.lastDrinkName);
+		
+		final TextView txtbeer = (TextView) findViewById(R.id.lastDrinkName);
 		final TextView txtbrand = (TextView) findViewById(R.id.lastDrinkDetails);
 		final TextView txtalcoholcontent = (TextView) findViewById(R.id.lastDrinkAlch);
-		final TextView txtlastDrinkHeader = (TextView) findViewById(R.id.lastDrinkHeader);
-		final TextView bacValue = (TextView)findViewById(R.id.bacValue);
 
-		//Set results to the TextViews
-		txtdrink.setText(drink);
+		// Set results to the TextViews
+		txtbeer.setText(beer);
 		txtbrand.setText(brand);
 		txtalcoholcontent.setText(alcoholContent);
-
-
-//		if (drink!=null){
-//			Calculator calc = new Calculator();
-//			double value = calc.calculatedBAC();
-//			bacValue.setText(value);
-//		}else{
-//			double ozOfAlch = 0;
-//			Time now = new Time();
-//			now.setToNow();
-//		}
 		
+		
+		/*Calculator*/
 
+		ParseUser currentUser = ParseUser.getCurrentUser();
+		if (currentUser != null) {
+			// get weight and gender and save them to global variables
+			ParseQuery<ParseObject> userInfoQuery = ParseQuery.getQuery("_User");
+			String user = currentUser.getUsername();
+			userInfoQuery.whereEqualTo("username", user);
+			//			userInfoQuery.whereEqualTo("weight", user);
+			Log.d(user, "This should be the username");
+			
+			userInfoQuery.getFirstInBackground(new GetCallback<ParseObject>()
+					{
+				public void done(ParseObject object, ParseException e)
+				{
+					if (object == null) 
+					{
+						Log.d(";(", "Didnt work");
+					} 
+					else 
+					{
+						String weight = object.getString("weight").toString();
+						String gender = object.getString("gender").toString();
 
-		final Button chooseDrink = (Button)findViewById(R.id.chooseDrinkButton);
+						double doubleWeight = Double.parseDouble(weight);
 
-		chooseDrink.setOnClickListener(new View.OnClickListener(){
+						double ratio;
 
-			public void onClick(View view){
-				Intent intent = new Intent(getBaseContext(), ChooseDrink.class);
-				startActivity(intent);
-			}
+						if(gender.equals("Male")){
+							ratio = 0.73;
+						} else{
+							ratio = 0.66;
+						}
+						double alcoholInOunces = 3.0;
+						double setAlc = (alcoholInOunces* 5.14/doubleWeight * ratio); //- (.015 * timeTaken);
+						String testString = ""+setAlc;
+						TextView bac = (TextView)findViewById(R.id.bacLevelLabel);
+						bac.setText(testString);
 
-		});
+					}
+				}
+					});	
 
-
-		final Button reorderDrink = (Button)findViewById(R.id.reorderDrink);
-		if(drink==null){
-			reorderDrink.setVisibility(View.GONE);
-			reorderDrink.setEnabled(false);
-			txtlastDrinkHeader.setVisibility(View.GONE);
 		}else{
-			reorderDrink.setVisibility(View.VISIBLE);
-			reorderDrink.setEnabled(true);
-			txtlastDrinkHeader.setVisibility(View.VISIBLE);
+
 		}
-
-		reorderDrink.setOnClickListener(new View.OnClickListener(){
-
-			public void onClick(View view){
-				//Readd Previous Drink to Tab Array List
-			}
-
-		});
-		//Button to goto close tab screen
-		final Button closeTab = (Button)findViewById(R.id.closeMe);
-
-		closeTab.setOnClickListener(new View.OnClickListener(){
-
-			public void onClick(View view){
-				//Used to goto my UserLoginPage
-				Intent intent = new Intent(getBaseContext(), CloseTabScreen.class);
-				startActivity(intent);
-			}
-		});
-
+				
+		/*Choose Drink Button*/
+		
+		final Button chooseDrink = (Button)findViewById(R.id.chooseDrinkButton);
+		
+		chooseDrink.setOnClickListener(new View.OnClickListener(){
+			
+    	public void onClick(View view){
+    		Intent intent = new Intent(getBaseContext(), ChooseDrink.class);
+    		startActivity(intent);
+    	}
+    
+  });
+		 //Button to goto close tab screen
+        final Button closeTab = (Button)findViewById(R.id.closeMe);
+		
+        closeTab.setOnClickListener(new View.OnClickListener(){
+        	
+        	public void onClick(View view){
+        		//Used to goto my UserLoginPage
+        		Intent intent = new Intent(getBaseContext(), CloseTabScreen.class);
+        		startActivity(intent);
+        	}
+      });
+        
+        /*The uber button*/
+        
 		final ImageButton uber = (ImageButton)findViewById(R.id.uberButton);
-
-		uber.setOnClickListener(new View.OnClickListener(){
-
-			public void onClick(View view){
-				//Used to open the uber app
-				Intent i;
-				PackageManager manager = getPackageManager();
-				try {
-					i = manager.getLaunchIntentForPackage("com.ubercab");
-					if (i == null)
-						throw new PackageManager.NameNotFoundException();
-					i.addCategory(Intent.CATEGORY_LAUNCHER);
-					startActivity(i);
-				} catch (PackageManager.NameNotFoundException e) {
-					Intent intent = new Intent();
-					intent.setAction(Intent.ACTION_VIEW);
-					intent.addCategory(Intent.CATEGORY_BROWSABLE);
-					intent.setData(Uri.parse("market://details?id=com.ubercab"));
-					startActivity(intent);
-				}     		
-			}
-
-		});
+		
+			uber.setOnClickListener(new View.OnClickListener(){
+				
+        	public void onClick(View view){
+        		Intent i;
+        		PackageManager manager = getPackageManager();
+        		try {
+        		   i = manager.getLaunchIntentForPackage("com.ubercab");
+        		if (i == null)
+        		    throw new PackageManager.NameNotFoundException();
+        		i.addCategory(Intent.CATEGORY_LAUNCHER);
+        		startActivity(i);
+        		} catch (PackageManager.NameNotFoundException e) {
+        			Intent intent = new Intent();
+        	        intent.setAction(Intent.ACTION_VIEW);
+        	        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        	        intent.setData(Uri.parse("market://details?id=com.ubercab"));
+        	        startActivity(intent);
+        		}     		
+        	}
+        
+      });
 	}
-
+	
 }
