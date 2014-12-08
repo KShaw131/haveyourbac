@@ -56,25 +56,6 @@
         android:src="@drawable/uber_logo" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/chooseDrinkButton"
-        android:layout_centerHorizontal="true"
-        android:text="BAC Level"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#34495e"
-        android:textSize="50sp" />
-
-    <TextView
-        android:id="@+id/latestBeer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="18dp" />
-
-    <TextView
         android:id="@+id/latestBrand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,4 +68,12 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/latestBrand"
         android:layout_below="@+id/latestBrand" />
+
+    <TextView
+        android:id="@+id/latestBeer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
 </RelativeLayout>
