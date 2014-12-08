@@ -97,7 +97,7 @@
         android:text="Cancel" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/latestBeer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/signupWeight"

@@ -18,6 +18,23 @@ public class MyTab extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_tab);
 		
+		Intent i = getIntent();
+		// Get the result of rank
+		String beer = i.getStringExtra("beer");
+		// Get the result of country
+		String brand = i.getStringExtra("brand");
+		// Get the result of population
+		String alcoholContent = i.getStringExtra("alcoholContent");
+		
+		final TextView txtbeer = (TextView) findViewById(R.id.latestBeer);
+		final TextView txtbrand = (TextView) findViewById(R.id.latestBrand);
+		final TextView txtalcoholcontent = (TextView) findViewById(R.id.latestAlcoholContent);
+
+		// Set results to the TextViews
+		txtbeer.setText(beer);
+		txtbrand.setText(brand);
+		txtalcoholcontent.setText(alcoholContent);
+		
 		final Button chooseDrink = (Button)findViewById(R.id.chooseDrinkButton);
 		
 		chooseDrink.setOnClickListener(new View.OnClickListener(){

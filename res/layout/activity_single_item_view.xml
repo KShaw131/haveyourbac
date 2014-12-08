@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+ 
+    <TextView
+        android:id="@+id/beerlabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Beer:		"
+        android:textSize="25sp" />
+ 
+    <TextView
+        android:id="@+id/beer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/beerlabel2"
+        android:textSize="25sp" />
+ 
+    <TextView
+        android:id="@+id/brandlabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/beerlabel2"
+        android:text="Brand:	"
+        android:textSize="25sp" />
+ 
+    <TextView
+        android:id="@+id/brand2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/beer2"
+        android:layout_toRightOf="@+id/brandlabel2"
+        android:textSize="25sp" />
+ 
+    <TextView
+        android:id="@+id/alcoholcontentlabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/brandlabel2"
+        android:text="Alcohol Content:	"
+        android:textSize="25sp" />
+ 
+    <TextView
+        android:id="@+id/alcoholcontent2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/brand2"
+        android:layout_toRightOf="@+id/alcoholcontentlabel2"
+        android:text="	%"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/addDrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Add Drink!" />
+
+    <Button
+        android:id="@+id/cancelDrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addDrink"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="63dp"
+        android:text="Cancel" />
+ 
+</RelativeLayout>
