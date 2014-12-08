@@ -39,7 +39,7 @@ public class DrinkList extends Activity {
 			// Create a progressdialog
 			mProgressDialog = new ProgressDialog(DrinkList.this);
 			// Set progressdialog title
-			mProgressDialog.setTitle("Database of Drinks");
+			mProgressDialog.setTitle("Gathering Beer Database");
 			// Set progressdialog message
 			mProgressDialog.setMessage("Loading...");
 			mProgressDialog.setIndeterminate(false);

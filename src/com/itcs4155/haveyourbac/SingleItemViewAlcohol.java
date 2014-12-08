@@ -28,28 +28,19 @@ public class SingleItemViewAlcohol extends Activity {
 		type = i.getStringExtra("type");
 		// Get the result of population
 		alcoholContent = i.getStringExtra("alcoholContent");
-		// Get the result of flag
-		//flag = i.getStringExtra("flag");
  
 		// Locate the TextViews in singleitemview.xml
 		final TextView txtdrink = (TextView) findViewById(R.id.drink2);
 		final TextView txttype = (TextView) findViewById(R.id.type2);
 		final TextView txtalcoholcontent = (TextView) findViewById(R.id.alcoholcontent6);
  
-		// Locate the ImageView in singleitemview.xml
-		//ImageView imgflag = (ImageView) findViewById(R.id.flag);
- 
 		// Set results to the TextViews
 		txtdrink.setText(drink);
 		txttype.setText(type);
 		txtalcoholcontent.setText(alcoholContent);
- 
-		// Capture position and set results to the ImageView
-		// Passes flag images URL into ImageLoader.class
-		//imageLoader.DisplayImage(flag, imgflag);
 		
-final Button cancel = (Button)findViewById(R.id.cancelDrink);
-final Button add = (Button)findViewById(R.id.addDrink);
+final Button cancel = (Button)findViewById(R.id.cancelAlcohol);
+final Button add = (Button)findViewById(R.id.addAlcohol);
 
 			add.setOnClickListener(new View.OnClickListener(){
 				

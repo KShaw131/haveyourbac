@@ -70,10 +70,7 @@ public class ListViewAdapter extends BaseAdapter {
 		holder.brand.setText(Drinklist.get(position).getBrand());
 		holder.alcoholContent.setText(Drinklist.get(position)
 				.getAlcoholContent());
-		// Set the results into ImageView
-//		imageLoader.DisplayImage(Drinklist.get(position).getFlag(),
-//				holder.flag);
-		// Listen for ListView Item Click
+		
 		view.setOnClickListener(new OnClickListener() {
 
 			@Override

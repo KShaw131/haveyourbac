@@ -28,34 +28,25 @@ public class SingleItemView extends Activity {
 		brand = i.getStringExtra("brand");
 		// Get the result of population
 		alcoholContent = i.getStringExtra("alcoholContent");
-		// Get the result of flag
-		//flag = i.getStringExtra("flag");
  
 		// Locate the TextViews in singleitemview.xml
 		final TextView txtbeer = (TextView) findViewById(R.id.beer2);
 		final TextView txtbrand = (TextView) findViewById(R.id.brand2);
 		final TextView txtalcoholcontent = (TextView) findViewById(R.id.alcoholcontent2);
  
-		// Locate the ImageView in singleitemview.xml
-		//ImageView imgflag = (ImageView) findViewById(R.id.flag);
- 
 		// Set results to the TextViews
 		txtbeer.setText(beer);
 		txtbrand.setText(brand);
 		txtalcoholcontent.setText(alcoholContent);
- 
-		// Capture position and set results to the ImageView
-		// Passes flag images URL into ImageLoader.class
-		//imageLoader.DisplayImage(flag, imgflag);
 		
-final Button cancel = (Button)findViewById(R.id.cancelDrink);
-final Button add = (Button)findViewById(R.id.addDrink);
+final Button cancel = (Button)findViewById(R.id.cancelWine);
+final Button add = (Button)findViewById(R.id.addWine);
 
 			add.setOnClickListener(new View.OnClickListener(){
 				
 				public void onClick(View arg0) {
 					Intent intent = new Intent(getBaseContext(), MyTab.class);
-					intent.putExtra("beer", txtbeer.getText());
+					intent.putExtra("drink", txtbeer.getText());
 					intent.putExtra("brand", txtbrand.getText());
 					intent.putExtra("alcoholContent", txtalcoholcontent.getText());
 					startActivity(intent);

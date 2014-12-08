@@ -3,7 +3,7 @@
     android:layout_height="fill_parent" >
  
     <TextView
-        android:id="@+id/beerlabel2"
+        android:id="@+id/winelabel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Beer:		"
@@ -13,14 +13,14 @@
         android:id="@+id/beer2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/beerlabel2"
+        android:layout_toRightOf="@+id/winelabel2"
         android:textSize="25sp" />
  
     <TextView
         android:id="@+id/brandlabel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/beerlabel2"
+        android:layout_below="@+id/winelabel2"
         android:text="Brand:	"
         android:textSize="25sp" />
  
@@ -33,7 +33,7 @@
         android:textSize="25sp" />
  
     <TextView
-        android:id="@+id/alcoholcontentlabel2"
+        android:id="@+id/alcoholcontentlabel5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/brandlabel2"
@@ -45,12 +45,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/brand2"
-        android:layout_toRightOf="@+id/alcoholcontentlabel2"
+        android:layout_toRightOf="@+id/alcoholcontentlabel5"
         android:text="	%"
         android:textSize="25sp" />
 
     <Button
-        android:id="@+id/addDrink"
+        android:id="@+id/addWine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -58,10 +58,10 @@
         android:text="Add Drink!" />
 
     <Button
-        android:id="@+id/cancelDrink"
+        android:id="@+id/cancelWine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/addDrink"
+        android:layout_below="@+id/addWine"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="63dp"
         android:text="Cancel" />
