@@ -17,7 +17,7 @@ public class ChooseDrink extends Activity {
 		setContentView(R.layout.activity_choose_drink);
 		
 		final ImageButton drinkTypeBeer = (ImageButton)findViewById(R.id.chooseBeerButton);
-		final ImageButton drinkTypeLiq = (ImageButton)findViewById(R.id.chooseAlcoholButton);
+		final ImageButton drinkTypeLiq = (ImageButton)findViewById(R.id.chooseLiquorButton);
 		final ImageButton drinkTypeWine = (ImageButton)findViewById(R.id.chooseWineButton);
 		
 		

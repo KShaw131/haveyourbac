@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -30,14 +31,25 @@ public class MyTab extends Activity {
 		final TextView txtbrand = (TextView) findViewById(R.id.lastDrinkDetails);
 		final TextView txtalcoholcontent = (TextView) findViewById(R.id.lastDrinkAlch);
 		final TextView txtlastDrinkHeader = (TextView) findViewById(R.id.lastDrinkHeader);
+		final TextView bacValue = (TextView)findViewById(R.id.bacValue);
 
 		//Set results to the TextViews
 		txtdrink.setText(drink);
 		txtbrand.setText(brand);
 		txtalcoholcontent.setText(alcoholContent);
 
-		Calculator calc = new Calculator();
-		calc.calculatedBAC();
+
+		if (drink!=null){
+			Calculator calc = new Calculator();
+			double value = calc.calculatedBAC();
+			bacValue.setText(value);
+		}else{
+			double ozOfAlch = 0;
+			Time now = new Time();
+			now.setToNow();
+		}
+		
+
 
 		final Button chooseDrink = (Button)findViewById(R.id.chooseDrinkButton);
 
@@ -49,8 +61,8 @@ public class MyTab extends Activity {
 			}
 
 		});
-			
-		
+
+
 		final Button reorderDrink = (Button)findViewById(R.id.reorderDrink);
 		if(drink==null){
 			reorderDrink.setVisibility(View.GONE);
