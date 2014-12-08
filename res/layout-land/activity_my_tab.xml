@@ -6,15 +6,6 @@
     android:background="#3498db"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <Button
-        android:id="@+id/closeMe"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/uberButton"
-        android:minHeight="100dip"
-        android:text="@string/close_tab" />
-
     <TextView
         android:id="@+id/myTabHeader"
         android:layout_width="wrap_content"
@@ -26,19 +17,10 @@
         android:textColor="#34495e"
         android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/chooseDrinkButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/myTabHeader"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:text="Choose Drink" />
-
     <ImageButton
         android:id="@+id/uberButton"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="false"
@@ -51,6 +33,26 @@
         android:scaleType="fitXY"
         android:src="@drawable/uber_logo" />
 
+    <Button
+        android:id="@+id/chooseDrinkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/uberButton"
+        android:layout_centerHorizontal="true"
+        android:text="Choose Drink" />
+
+    <TextView
+        android:id="@+id/bacLevelLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myTabHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="BAC Level"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#34495e"
+        android:textSize="35sp" />
+
     <TextView
         android:id="@+id/bacValue"
         android:layout_width="wrap_content"
@@ -59,35 +61,15 @@
         android:layout_centerHorizontal="true"
         android:text="0.00"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="50sp" />
-
-    <TextView
-        android:id="@+id/bacLevelLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/chooseDrinkButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
-        android:text="BAC Level"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#34495e"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/reorderDrink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bacValue"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
-        android:text="Reorder Last Drink" />
+        android:textSize="55sp" />
 
     <TextView
         android:id="@+id/lastDrinkHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/reorderDrink"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
         android:text="Last Drink:"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textSize="17sp" />
@@ -96,24 +78,46 @@
         android:id="@+id/lastDrinkName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/lastDrinkHeader"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/lastDrinkDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/lastDrinkName"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/lastDrinkAlch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/lastDrinkDetails"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/closeMe"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/myTabHeader"
+        android:minHeight="100dip"
+        android:text="@string/close_tab" />
+
+    <Button
+        android:id="@+id/reorderDrink"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/myTabHeader"
+        android:maxHeight="110dp"
+        android:minWidth="50dp"
+        android:text="Reorder Last Drink" />
 
 </RelativeLayout>
