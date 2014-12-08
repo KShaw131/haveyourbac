@@ -17,7 +17,7 @@ public class ChooseDrink extends Activity {
 		setContentView(R.layout.activity_choose_drink);
 		
 		final ImageButton drinkTypeBeer = (ImageButton)findViewById(R.id.chooseBeerButton);
-		final ImageButton drinkTypeLiq = (ImageButton)findViewById(R.id.chooseLiquorButton);
+		final ImageButton drinkTypeLiq = (ImageButton)findViewById(R.id.chooseAlcoholButton);
 		final ImageButton drinkTypeWine = (ImageButton)findViewById(R.id.chooseWineButton);
 		
 		
@@ -32,7 +32,7 @@ public class ChooseDrink extends Activity {
 		drinkTypeLiq.setOnClickListener(new View.OnClickListener(){
 			
 	    	public void onClick(View view){
-	    		Intent intent = new Intent(getBaseContext(), DrinkList.class);
+	    		Intent intent = new Intent(getBaseContext(), AlcoholList.class);
 	    		startActivity(intent);
 	    	}
 	    
