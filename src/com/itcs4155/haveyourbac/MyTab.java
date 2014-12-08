@@ -114,6 +114,15 @@ public class MyTab extends Activity {
         	}
       });
         
+        /*The Custom Drink Button*/
+        final Button custom = (Button)findViewById(R.id.customButton);
+        custom.setOnClickListener(new View.OnClickListener(){
+        public void onClick(View view){
+        Intent intent = new Intent(getBaseContext(), CustomDrinkPage.class);
+        startActivity(intent);
+        }
+        });
+        
         /*The uber button*/
         
 		final ImageButton uber = (ImageButton)findViewById(R.id.uberButton);

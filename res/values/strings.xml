@@ -22,4 +22,18 @@
     <string name="title_activity_single_item_view_wine">SingleItemViewWine</string>
     <string name="title_activity_alcohol_list">AlcoholList</string>
     <string name="title_activity_single_item_view_alcohol">SingleItemViewAlcohol</string>
+    <string name="add_custom_drink">Add Custom Drink</string>
+    <string name="title_activity_custom_drink_page">CustomDrinkPage</string>
+    <string name="add_your_custom_drink">Add your custom drink</string>
+    
+    <string name="drink_prompt">Choose a Drink Type</string>
+ 
+    <string-array name="drink_arrays">
+        <item>Beer</item>
+        <item>Wine</item>
+        <item>Liquor</item>
+    </string-array>
+        <string name="add_drink">Add Drink</string>
+ 
+
 </resources>
