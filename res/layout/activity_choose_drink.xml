@@ -17,7 +17,7 @@
         android:textSize="24sp" />
 
     <ImageButton
-        android:id="@+id/chooseLiquorButton"
+        android:id="@+id/chooseWineButton"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_alignParentEnd="false"
@@ -30,11 +30,11 @@
         android:src="@drawable/wine_final" />
 
     <ImageButton
-        android:id="@+id/chooseWineButton"
+        android:id="@+id/chooseAlcoholButton"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_alignLeft="@+id/chooseLiquorButton"
-        android:layout_below="@+id/chooseLiquorButton"
+        android:layout_alignLeft="@+id/chooseWineButton"
+        android:layout_below="@+id/chooseWineButton"
         android:layout_marginTop="13dp"
         android:background="@drawable/liquor_final"
         android:scaleType="fitXY"
@@ -44,7 +44,7 @@
         android:id="@+id/chooseBeerButton"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_alignLeft="@+id/chooseLiquorButton"
+        android:layout_alignLeft="@+id/chooseWineButton"
         android:layout_below="@+id/latestBeer"
         android:layout_marginTop="20dp"
         android:background="@drawable/beer_final"
