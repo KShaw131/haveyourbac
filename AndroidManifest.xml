@@ -93,6 +93,10 @@
             android:name=".CloseTabScreen"
             android:label="@string/title_activity_close_tab_screen" >
         </activity>
+        
+        <!-- replace @drawable/push_icon with your push icon identifier -->
+		<meta-data android:name="com.parse.push.notification_icon" android:resource="@drawable/push_icon1"/>
+
     </application>
 
 </manifest>

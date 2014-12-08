@@ -2,7 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2c3e50"
     tools:context="${relativePackage}.${activityClass}" >
 
     <TextView
@@ -21,47 +20,5 @@
         android:layout_height="match_parent"
         android:layout_below="@id/thanks"
         android:layout_marginBottom="220dp" />
-
-    <EditText
-        android:id="@+id/tvXMax"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="176dp"
-        android:layout_marginRight="29dp"
-        android:ems="10" android:inputType="none">
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/tvYMax"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvXMax"
-        android:layout_alignTop="@+id/tvXMax"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="57dp"
-        android:ems="10" android:inputType="none"/>
-
-    <SeekBar
-        android:id="@+id/seekBar1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@string/title_activity_close_tab_screen"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/tvYMax"
-        android:layout_marginLeft="14dp"
-        android:layout_marginRight="190dp"
-        android:layout_marginTop="26dp" />
-
-    <SeekBar
-        android:id="@+id/seekBar2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/seekBar1"
-        android:layout_marginLeft="180dp" />
 
 </RelativeLayout>

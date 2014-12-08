@@ -6,8 +6,10 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class MyTab extends Activity {
 
@@ -26,6 +28,9 @@ public class MyTab extends Activity {
     	}
     
   });
+
+		
+        
 		 //Button to goto close tab screen
         final Button closeTab = (Button)findViewById(R.id.closeMe);
 		
@@ -39,6 +44,7 @@ public class MyTab extends Activity {
         	}
         
       });
+        
 		
 		final ImageButton uber = (ImageButton)findViewById(R.id.uberButton);
 		
