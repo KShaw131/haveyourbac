@@ -1,10 +1,17 @@
 package com.itcs4155.haveyourbac;
 
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -35,9 +42,58 @@ public class MyTab extends Activity {
 		txtbrand.setText(brand);
 		txtalcoholcontent.setText(alcoholContent);
 		
-		Calculator calc = new Calculator();
-		calc.calculatedBAC();
 		
+		//////////
+		
+
+		ParseUser currentUser = ParseUser.getCurrentUser();
+		if (currentUser != null) {
+			// get weight and gender and save them to global variables
+			ParseQuery<ParseObject> userInfoQuery = ParseQuery.getQuery("_User");
+			String user = currentUser.getUsername();
+			userInfoQuery.whereEqualTo("username", user);
+			//			userInfoQuery.whereEqualTo("weight", user);
+			Log.d(user, "This should be the username");
+			
+			
+
+			userInfoQuery.getFirstInBackground(new GetCallback<ParseObject>()
+					{
+				public void done(ParseObject object, ParseException e)
+				{
+					if (object == null) 
+					{
+						Log.d(";(", "Didnt work");
+					} 
+					else 
+					{
+						String weight = object.getString("weight").toString();
+						String gender = object.getString("gender").toString();
+
+						double doubleWeight = Double.parseDouble(weight);
+
+						double ratio;
+
+						if(gender.equals("Male")){
+							ratio = 0.73;
+						} else{
+							ratio = 0.66;
+						}
+						double alcoholInOunces = 3.0;
+						double setAlc = (alcoholInOunces* 5.14/doubleWeight * ratio); //- (.015 * timeTaken);
+						String testString = ""+setAlc;
+						TextView bac = (TextView)findViewById(R.id.bacLevelLabel);
+						bac.setText(testString);
+
+					}
+				}
+					});	
+
+		}else{
+
+		}
+				
+		/////////////
 		final Button chooseDrink = (Button)findViewById(R.id.chooseDrinkButton);
 		
 		chooseDrink.setOnClickListener(new View.OnClickListener(){
