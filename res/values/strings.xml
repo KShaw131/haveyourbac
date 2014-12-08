@@ -20,5 +20,6 @@
     <string name="title_activity_single_item_view">SingleItemView</string>
     <string name="title_activity_wine_list">WineList</string>
     <string name="title_activity_single_item_view_wine">SingleItemViewWine</string>
-
+    <string name="title_activity_alcohol_list">AlcoholList</string>
+    <string name="title_activity_single_item_view_alcohol">SingleItemViewAlcohol</string>
 </resources>

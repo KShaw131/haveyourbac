@@ -110,6 +110,13 @@
             android:name=".SingleItemViewWine"
             android:label="@string/title_activity_single_item_view_wine" >
         </activity>
+        <activity
+            android:name=".AlcoholList"
+            android:label="@string/title_activity_alcohol_list" >
+        </activity>
+        <activity
+            android:name=".SingleItemViewAlcohol"
+            android:label="@string/title_activity_single_item_view_alcohol" >
+        </activity>
     </application>
-
 </manifest>
