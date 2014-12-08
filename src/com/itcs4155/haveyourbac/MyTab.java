@@ -6,8 +6,10 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class MyTab extends Activity {
 
@@ -15,6 +17,23 @@ public class MyTab extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_tab);
+		
+		Intent i = getIntent();
+		// Get the result of rank
+		String beer = i.getStringExtra("beer");
+		// Get the result of country
+		String brand = i.getStringExtra("brand");
+		// Get the result of population
+		String alcoholContent = i.getStringExtra("alcoholContent");
+		
+		final TextView txtbeer = (TextView) findViewById(R.id.latestBeer);
+		final TextView txtbrand = (TextView) findViewById(R.id.latestBrand);
+		final TextView txtalcoholcontent = (TextView) findViewById(R.id.latestAlcoholContent);
+
+		// Set results to the TextViews
+		txtbeer.setText(beer);
+		txtbrand.setText(brand);
+		txtalcoholcontent.setText(alcoholContent);
 		
 		final Button chooseDrink = (Button)findViewById(R.id.chooseDrinkButton);
 		
@@ -26,6 +45,9 @@ public class MyTab extends Activity {
     	}
     
   });
+
+		
+        
 		 //Button to goto close tab screen
         final Button closeTab = (Button)findViewById(R.id.closeMe);
 		
@@ -39,6 +61,7 @@ public class MyTab extends Activity {
         	}
         
       });
+        
 		
 		final ImageButton uber = (ImageButton)findViewById(R.id.uberButton);
 		

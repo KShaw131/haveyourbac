@@ -19,10 +19,6 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-    <!--
-  IMPORTANT: Change "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the lines below
-  to match your app's package name + ".permission.C2D_MESSAGE".
-    -->
     <permission
         android:name="com.itcs4155.haveyourbac.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
@@ -93,6 +89,18 @@
             android:name=".CloseTabScreen"
             android:label="@string/title_activity_close_tab_screen" >
         </activity>
+         <activity
+            android:name=".DrinkList"
+            android:label="@string/title_activity_drink_list" >
+        </activity>
+        <activity
+            android:name=".SingleItemView"
+            android:label="@string/title_activity_single_item_view" >
+        </activity>
+        
+        <!-- replace @drawable/push_icon with your push icon identifier -->
+		<meta-data android:name="com.parse.push.notification_icon" android:resource="@drawable/push_icon1"/>
+
     </application>
 
 </manifest>

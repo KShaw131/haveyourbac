@@ -25,8 +25,6 @@ import java.util.ArrayList;
 public class CloseTabScreen extends FragmentActivity implements OnSeekBarChangeListener {
 
     private LineChart mChart;
-    private SeekBar mSeekBarX, mSeekBarY;
-    private TextView tvX, tvY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +32,6 @@ public class CloseTabScreen extends FragmentActivity implements OnSeekBarChangeL
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_close_tab_screen);
-
-        tvX = (TextView) findViewById(R.id.tvXMax);
-        tvY = (TextView) findViewById(R.id.tvYMax);
-
-        mSeekBarX = (SeekBar) findViewById(R.id.seekBar1);
-        mSeekBarY = (SeekBar) findViewById(R.id.seekBar2);
-
-        mSeekBarX.setProgress(45);
-        mSeekBarY.setProgress(100);
-
-        mSeekBarY.setOnSeekBarChangeListener(this);
-        mSeekBarX.setOnSeekBarChangeListener(this);
 
         mChart = (LineChart) findViewById(R.id.ourChart);
         // if enabled, the chart will always start at zero on the y-axis
@@ -98,153 +84,6 @@ public class CloseTabScreen extends FragmentActivity implements OnSeekBarChangeL
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.line, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.actionToggleValues: {
-                if (mChart.isDrawYValuesEnabled())
-                    mChart.setDrawYValues(false);
-                else
-                    mChart.setDrawYValues(true);
-                mChart.invalidate();
-                break;
-            }
-            case R.id.actionToggleHighlight: {
-                if (mChart.isHighlightEnabled())
-                    mChart.setHighlightEnabled(false);
-                else
-                    mChart.setHighlightEnabled(true);
-                mChart.invalidate();
-                break;
-            }
-            case R.id.actionToggleFilled: {
-
-                ArrayList<LineDataSet> sets = (ArrayList<LineDataSet>) mChart.getData()
-                        .getDataSets();
-
-                for (LineDataSet set : sets) {
-                    if (set.isDrawFilledEnabled())
-                        set.setDrawFilled(false);
-                    else
-                        set.setDrawFilled(true);
-                }
-                mChart.invalidate();
-                break;
-            }
-            case R.id.actionToggleCircles: {
-                ArrayList<LineDataSet> sets = (ArrayList<LineDataSet>) mChart.getData()
-                        .getDataSets();
-
-                for (LineDataSet set : sets) {
-                    if (set.isDrawCirclesEnabled())
-                        set.setDrawCircles(false);
-                    else
-                        set.setDrawCircles(true);
-                }
-                mChart.invalidate();
-                break;
-            }
-            case R.id.actionToggleCubic: {
-                ArrayList<LineDataSet> sets = (ArrayList<LineDataSet>) mChart.getData()
-                        .getDataSets();
-
-                for (LineDataSet set : sets) {
-                    if (set.isDrawCubicEnabled())
-                        set.setDrawCubic(false);
-                    else
-                        set.setDrawCubic(true);
-                }
-                mChart.invalidate();
-                break;
-            }
-            case R.id.actionToggleStartzero: {
-                if (mChart.isStartAtZeroEnabled())
-                    mChart.setStartAtZero(false);
-                else
-                    mChart.setStartAtZero(true);
-
-                mChart.invalidate();
-                break;
-            }
-            case R.id.actionTogglePinch: {
-                if (mChart.isPinchZoomEnabled())
-                    mChart.setPinchZoom(false);
-                else
-                    mChart.setPinchZoom(true);
-
-                mChart.invalidate();
-                break;
-            }
-            case R.id.animateX: {
-                mChart.animateX(3000);
-                break;
-            }
-            case R.id.animateY: {
-                mChart.animateY(3000);
-                break;
-            }
-            case R.id.animateXY: {
-                mChart.animateXY(3000, 3000);
-                break;
-            }
-            case R.id.actionToggleAdjustXLegend: {
-                XLabels xLabels = mChart.getXLabels();
-
-                if (xLabels.isAdjustXLabelsEnabled())
-                    xLabels.setAdjustXLabels(false);
-                else
-                    xLabels.setAdjustXLabels(true);
-
-                mChart.invalidate();
-                break;
-            }
-            case R.id.actionToggleFilter: {
-
-                // the angle of filtering is 35°
-                Approximator a = new Approximator(ApproximatorType.DOUGLAS_PEUCKER, 35);
-
-                if (!mChart.isFilteringEnabled()) {
-                    mChart.enableFiltering(a);
-                } else {
-                    mChart.disableFiltering();
-                }
-                mChart.invalidate();            
-                break;
-            }
-            case R.id.actionSave: {
-                if (mChart.saveToPath("title" + System.currentTimeMillis(), "")) {
-                    Toast.makeText(getApplicationContext(), "Saving SUCCESSFUL!",
-                            Toast.LENGTH_SHORT).show();
-                } else
-                    Toast.makeText(getApplicationContext(), "Saving FAILED!", Toast.LENGTH_SHORT)
-                            .show();
-
-                // mChart.saveToGallery("title"+System.currentTimeMillis())
-                break;
-            }
-        }
-        return true;
-    }
-
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-        tvX.setText("" + (mSeekBarX.getProgress() + 1));
-        tvY.setText("" + (mSeekBarY.getProgress()));
-
-        setData(mSeekBarX.getProgress() + 1, mSeekBarY.getProgress());
-
-        // redraw
-        mChart.invalidate();
-    }
-
-    @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
         // TODO Auto-generated method stub
 
@@ -293,6 +132,13 @@ public class CloseTabScreen extends FragmentActivity implements OnSeekBarChangeL
         // set data
         mChart.setData(data);
     }
+
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress,
+			boolean fromUser) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
 //import android.app.Activity;
