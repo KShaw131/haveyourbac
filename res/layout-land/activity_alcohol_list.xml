@@ -4,27 +4,27 @@
     android:layout_height="fill_parent" >
  
     <EditText
-        android:id="@+id/searchTextBeer"
+        android:id="@+id/searchTextAlcohol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:ems="16"
-        android:hint="Beer brand or name"
+        android:hint="Liquor type or name"
         android:inputType="text" >
 
         <requestFocus />
     </EditText>
-    
+
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/listview_alcohol"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/searchTextBeer" >
+        android:layout_below="@+id/searchTextAlcohol" >
 
     </ListView>
-    
+ 
 </RelativeLayout>

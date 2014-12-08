@@ -1,52 +1,35 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
- 
+
     <TextView
         android:id="@+id/winelabel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Beer:		"
+        android:text="Wine:		"
         android:textSize="25sp" />
- 
+
     <TextView
-        android:id="@+id/beer2"
+        android:id="@+id/wine2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/winelabel2"
         android:textSize="25sp" />
- 
+
     <TextView
-        android:id="@+id/brandlabel2"
+        android:id="@+id/alcoholcontentlabel4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/winelabel2"
-        android:text="Brand:	"
-        android:textSize="25sp" />
- 
-    <TextView
-        android:id="@+id/brand2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/beer2"
-        android:layout_toRightOf="@+id/brandlabel2"
-        android:textSize="25sp" />
- 
-    <TextView
-        android:id="@+id/alcoholcontentlabel5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/brandlabel2"
         android:text="Alcohol Content:	"
         android:textSize="25sp" />
- 
+    
     <TextView
-        android:id="@+id/alcoholcontent2"
+        android:id="@+id/alcoholcontent4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/brand2"
-        android:layout_toRightOf="@+id/alcoholcontentlabel5"
-        android:text="	%"
+        android:layout_below="@+id/wine2"
+        android:layout_toRightOf="@+id/alcoholcontentlabel4"
         android:textSize="25sp" />
 
     <Button
@@ -65,5 +48,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="63dp"
         android:text="Cancel" />
- 
+
 </RelativeLayout>

@@ -2,40 +2,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3498db"
+    android:background="#2C3E50"
     tools:context="${relativePackage}.${activityClass}" >
 
     <TextView
-        android:id="@+id/latestBeer"
+        android:id="@+id/drinkTypeHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:text="Pick your Poison"
+        android:layout_marginTop="10dp"
+        android:text="Pick your Drink Type"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
     <ImageButton
-        android:id="@+id/chooseLiquorButton"
+        android:id="@+id/chooseWineButton"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false"
         android:layout_below="@+id/chooseBeerButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="35dp"
         android:background="@drawable/wine_final"
         android:scaleType="fitXY"
         android:src="@drawable/wine_final" />
 
     <ImageButton
-        android:id="@+id/chooseWineButton"
+        android:id="@+id/chooseLiquorButton"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_alignLeft="@+id/chooseLiquorButton"
-        android:layout_below="@+id/chooseLiquorButton"
-        android:layout_marginTop="13dp"
+        android:layout_alignLeft="@+id/chooseWineButton"
+        android:layout_below="@+id/chooseWineButton"
+        android:layout_marginTop="35dp"
         android:background="@drawable/liquor_final"
         android:scaleType="fitXY"
         android:src="@drawable/liquor_final" />
@@ -44,11 +45,47 @@
         android:id="@+id/chooseBeerButton"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_alignLeft="@+id/chooseLiquorButton"
-        android:layout_below="@+id/latestBeer"
-        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@+id/chooseWineButton"
+        android:layout_below="@+id/drinkTypeHeader"
+        android:layout_marginTop="8dp"
         android:background="@drawable/beer_final"
         android:scaleType="fitXY"
         android:src="@drawable/beer_final" />
+
+    <TextView
+        android:id="@+id/beerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chooseBeerButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:text="Beer"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/wineLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chooseWineButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:text="Wine"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/liquorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chooseLiquorButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:text="Liquor"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
 
 </RelativeLayout>

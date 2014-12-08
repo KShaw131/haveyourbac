@@ -14,42 +14,41 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ListViewAdapter extends BaseAdapter implements Filterable {
+public class ListViewAdapterWine extends BaseAdapter implements Filterable {
 
 	// Declare Variables
 	Context context;
 	LayoutInflater inflater;
-	//ImageLoader imageLoader;
-	private List<Drink> Drinklist = null;
-	private ArrayList<Drink> arraylist;
-	private ArrayList<Drink> mStringFilterList;
+	//
+	private List<Wine> Winelist = null;
+	private ArrayList<Wine> arraylist;
+	private ArrayList<Wine> mStringFilterList;
 	ValueFilter valueFilter;
 
-	public ListViewAdapter(Context context,
-			List<Drink> Drinklist) {
+	public ListViewAdapterWine(Context context,
+			List<Wine> Winelist) {
+		super();
 		this.context = context;
-		this.Drinklist = Drinklist;
+		this.Winelist = Winelist;
 		inflater = LayoutInflater.from(context);
-		this.arraylist = new ArrayList<Drink>();
-		this.arraylist.addAll(Drinklist);
+		this.arraylist = new ArrayList<Wine>();
+		this.arraylist.addAll(Winelist);
 		mStringFilterList = arraylist;
-		//imageLoader = new ImageLoader(context);
 	}
 
 	public class ViewHolder {
-		TextView beer;
-		TextView brand;
+		TextView wine;
 		TextView alcoholContent;
 	}
 
 	@Override
 	public int getCount() {
-		return Drinklist.size();
+		return Winelist.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return Drinklist.get(position);
+		return Winelist.get(position);
 	}
 
 	@Override
@@ -61,19 +60,17 @@ public class ListViewAdapter extends BaseAdapter implements Filterable {
 		final ViewHolder holder;
 		if (view == null) {
 			holder = new ViewHolder();
-			view = inflater.inflate(R.layout.listview_item, null);
+			view = inflater.inflate(R.layout.wine_listview_item, null);
 			// Locate the TextViews in listview_item.xml
-			holder.beer = (TextView) view.findViewById(R.id.beer);
-			holder.brand = (TextView) view.findViewById(R.id.brand);
-			holder.alcoholContent = (TextView) view.findViewById(R.id.alcoholContent);
+			holder.wine = (TextView) view.findViewById(R.id.wine);
+			holder.alcoholContent = (TextView) view.findViewById(R.id.alcoholContent3);
 			view.setTag(holder);
 		} else {
 			holder = (ViewHolder) view.getTag();
 		}
 		// Set the results into TextViews
-		holder.beer.setText(Drinklist.get(position).getBeer());
-		holder.brand.setText(Drinklist.get(position).getBrand());
-		holder.alcoholContent.setText(Drinklist.get(position)
+		holder.wine.setText(Winelist.get(position).getWine());
+		holder.alcoholContent.setText(Winelist.get(position)
 				.getAlcoholContent());
 		
 		view.setOnClickListener(new OnClickListener() {
@@ -81,27 +78,16 @@ public class ListViewAdapter extends BaseAdapter implements Filterable {
 			@Override
 			public void onClick(View arg0) {
 				// Send single item click data to SingleItemView Class
-				Intent intent = new Intent(context, SingleItemView.class);
-				// Pass all data rank
-				intent.putExtra("beer",
-						(Drinklist.get(position).getBeer()));
-				// Pass all data country
-				intent.putExtra("brand",
-						(Drinklist.get(position).getBrand()));
-				// Pass all data population
-				intent.putExtra("alcoholContent",
-						(Drinklist.get(position).getAlcoholContent()));
-//				// Pass all data flag
-//				intent.putExtra("flag",
-//						(Drinklist.get(position).getFlag()));
-				// Start SingleItemView Class
+				Intent intent = new Intent(context, SingleItemViewWine.class);
+				// Pass all data wine
+				intent.putExtra("wine", (Winelist.get(position).getWine()));
+				intent.putExtra("alcoholContent", (Winelist.get(position).getAlcoholContent()));
 				context.startActivity(intent);
 			}
 		});
 		return view;
 	}
 	
-
 	@Override
 	public Filter getFilter() {
 	    if(valueFilter==null) {
@@ -119,14 +105,13 @@ public class ListViewAdapter extends BaseAdapter implements Filterable {
 	    protected FilterResults performFiltering(CharSequence constraint) {
 	        FilterResults results=new FilterResults();
 	        if(constraint!=null && constraint.length()>0){
-	            ArrayList<Drink> filterList=new ArrayList<Drink>();
+	            ArrayList<Wine> filterList=new ArrayList<Wine>();
 	            for(int i=0;i<mStringFilterList.size();i++)
 	            {
-	                if((mStringFilterList.get(i).getBeer().toUpperCase()).contains(constraint.toString().toUpperCase()) || (mStringFilterList.get(i).getBrand().toUpperCase()).contains(constraint.toString().toUpperCase()))
+	                if((mStringFilterList.get(i).getWine().toUpperCase()).contains(constraint.toString().toUpperCase()))
 	                {
-	                	Drink drink = new Drink();
-	                    drink.setBeer(mStringFilterList.get(i).getBeer());
-	                    drink.setBrand(mStringFilterList.get(i).getBrand());
+	                	Wine drink = new Wine();
+	                    drink.setWine(mStringFilterList.get(i).getWine());
 	                    drink.setAlcoholContent(mStringFilterList.get(i).getAlcoholContent());
 	                    filterList.add(drink);
 	                }
@@ -146,7 +131,7 @@ public class ListViewAdapter extends BaseAdapter implements Filterable {
 	    @Override
 	    protected void publishResults(CharSequence constraint,
 	            FilterResults results) {
-	        Drinklist=(List<Drink>) results.values;
+	        Winelist=(List<Wine>) results.values;
 	        notifyDataSetChanged();
 	    }
 	}

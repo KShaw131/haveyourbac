@@ -17,31 +17,31 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
  
-public class AlcoholList extends Activity {
+public class WineList extends Activity {
 	// Declare Variables
-	ListView listview;
-	List<ParseObject> ob;
-	ProgressDialog mProgressDialog;
-	ListViewAdapterAlcohol adapter;
-	private List<Alcohol> Alcohollist = null;
+	ListView listview2;
+	List<ParseObject> ob2;
+	ProgressDialog wProgressDialog;
+	ListViewAdapterWine adapter2;
+	private List<Wine> Winelist = null;
 	EditText inputSearch;
  
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// the view from listview_main = activity_drink_list.xml
-		setContentView(R.layout.activity_alcohol_list);
+		setContentView(R.layout.activity_wine_list);
 		// Execute RemoteDataTask AsyncTask
 		new RemoteDataTask().execute();
 		
-		inputSearch = (EditText) findViewById(R.id.searchTextAlcohol);
+		inputSearch = (EditText) findViewById(R.id.searchTextWine);
 		
 		 inputSearch.addTextChangedListener(new TextWatcher() {
              
 	            @Override
 	            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
 	                // When user changed the Text
-	            	adapter.getFilter().filter(cs); 
+	            	adapter2.getFilter().filter(cs); 
 	            }
 	             
 	            @Override
@@ -56,7 +56,7 @@ public class AlcoholList extends Activity {
 	                // TODO Auto-generated method stub                          
 	            }
 	        });
-		
+		 
 	}
  
 	// RemoteDataTask AsyncTask
@@ -65,35 +65,32 @@ public class AlcoholList extends Activity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			// Create a progressdialog
-			mProgressDialog = new ProgressDialog(AlcoholList.this);
+			wProgressDialog = new ProgressDialog(WineList.this);
 			// Set progressdialog title
-			mProgressDialog.setTitle("Database of Alcohols");
+			wProgressDialog.setTitle("Gathering Wine Database");
 			// Set progressdialog message
-			mProgressDialog.setMessage("Loading...");
-			mProgressDialog.setIndeterminate(false);
+			wProgressDialog.setMessage("Loading...");
+			wProgressDialog.setIndeterminate(false);
 			// Show progressdialog
-			mProgressDialog.show();
+			wProgressDialog.show();
 		}
  
 		@Override
 		protected Void doInBackground(Void... params) {
 			// Create the array
-			Alcohollist = new ArrayList<Alcohol>();
+			Winelist = new ArrayList<Wine>();
 			try {
-				// Locate the class table named "Country" in Parse.com
-				ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
-						"LiquorList");
-				// Locate the column named "ranknum" in Parse.com and order list
+				// Locate the class table named "WineList" in Parse.com
+				ParseQuery<ParseObject> winequery = new ParseQuery<ParseObject>("WineList");
 				// by ascending
-				query.orderByAscending("type");
-				query.setLimit(300);
-				ob = query.find();
-				for (ParseObject liquor : ob) {
-					Alcohol map = new Alcohol();
-					map.setDrink((String) liquor.get("drink"));
-					map.setType((String) liquor.get("type"));
-					map.setAlcoholContent((String) liquor.get("alcoholContent").toString());
-					Alcohollist.add(map);
+				winequery.orderByAscending("type");
+				winequery.setLimit(100);
+				ob2 = winequery.find();
+				for (ParseObject wine : ob2) {
+					Wine map2 = new Wine();
+					map2.setWine((String) wine.get("type"));
+					map2.setAlcoholContent((String) wine.get("alcoholContent").toString());
+					Winelist.add(map2);
 				}
 			} catch (ParseException e) {
 				Log.e("Error", e.getMessage());
@@ -105,13 +102,13 @@ public class AlcoholList extends Activity {
 		@Override
 		protected void onPostExecute(Void result) {
 			// Locate the listview in listview_main.xml
-			listview = (ListView) findViewById(R.id.listview_alcohol);
+			listview2 = (ListView) findViewById(R.id.listview2);
 			// Pass the results into ListViewAdapter.java
-			adapter = new ListViewAdapterAlcohol(AlcoholList.this, Alcohollist);
+			adapter2 = new ListViewAdapterWine(WineList.this, Winelist);
 			// Binds the Adapter to the ListView
-			listview.setAdapter(adapter);
+			listview2.setAdapter(adapter2);
 			// Close the progressdialog
-			mProgressDialog.dismiss();
+			wProgressDialog.dismiss();
 		}
 	}
 }

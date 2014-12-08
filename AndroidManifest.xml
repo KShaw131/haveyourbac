@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="21"/>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -103,6 +103,14 @@
             android:resource="@drawable/push_icon1" />
 
         <activity
+            android:name=".WineList"
+            android:label="@string/title_activity_wine_list" >
+        </activity>
+        <activity
+            android:name=".SingleItemViewWine"
+            android:label="@string/title_activity_single_item_view_wine" >
+        </activity>
+        <activity
             android:name=".AlcoholList"
             android:label="@string/title_activity_alcohol_list" >
         </activity>
@@ -111,5 +119,4 @@
             android:label="@string/title_activity_single_item_view_alcohol" >
         </activity>
     </application>
-
 </manifest>

@@ -32,7 +32,7 @@ public class ChooseDrink extends Activity {
 		drinkTypeLiq.setOnClickListener(new View.OnClickListener(){
 			
 	    	public void onClick(View view){
-	    		Intent intent = new Intent(getBaseContext(), DrinkList.class);
+	    		Intent intent = new Intent(getBaseContext(), AlcoholList.class);
 	    		startActivity(intent);
 	    	}
 	    
@@ -40,7 +40,7 @@ public class ChooseDrink extends Activity {
 		drinkTypeWine.setOnClickListener(new View.OnClickListener(){
 			
 	    	public void onClick(View view){
-	    		Intent intent = new Intent(getBaseContext(), DrinkList.class);
+	    		Intent intent = new Intent(getBaseContext(), WineList.class);
 	    		startActivity(intent);
 	    	}
 	    

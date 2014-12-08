@@ -33,9 +33,9 @@ public class MyTab extends Activity {
 		// Get the result of population
 		String alcoholContent = i.getStringExtra("alcoholContent");
 		
-		final TextView txtbeer = (TextView) findViewById(R.id.latestBeer);
-		final TextView txtbrand = (TextView) findViewById(R.id.latestBrand);
-		final TextView txtalcoholcontent = (TextView) findViewById(R.id.latestAlcoholContent);
+		final TextView txtbeer = (TextView) findViewById(R.id.lastDrinkName);
+		final TextView txtbrand = (TextView) findViewById(R.id.lastDrinkDetails);
+		final TextView txtalcoholcontent = (TextView) findViewById(R.id.lastDrinkAlch);
 
 		// Set results to the TextViews
 		txtbeer.setText(beer);
@@ -43,8 +43,7 @@ public class MyTab extends Activity {
 		txtalcoholcontent.setText(alcoholContent);
 		
 		
-		//////////
-		
+		/*Calculator*/
 
 		ParseUser currentUser = ParseUser.getCurrentUser();
 		if (currentUser != null) {
@@ -55,8 +54,6 @@ public class MyTab extends Activity {
 			//			userInfoQuery.whereEqualTo("weight", user);
 			Log.d(user, "This should be the username");
 			
-			
-
 			userInfoQuery.getFirstInBackground(new GetCallback<ParseObject>()
 					{
 				public void done(ParseObject object, ParseException e)
@@ -93,7 +90,8 @@ public class MyTab extends Activity {
 
 		}
 				
-		/////////////
+		/*Choose Drink Button*/
+		
 		final Button chooseDrink = (Button)findViewById(R.id.chooseDrinkButton);
 		
 		chooseDrink.setOnClickListener(new View.OnClickListener(){
@@ -116,12 +114,13 @@ public class MyTab extends Activity {
         	}
       });
         
+        /*The uber button*/
+        
 		final ImageButton uber = (ImageButton)findViewById(R.id.uberButton);
 		
 			uber.setOnClickListener(new View.OnClickListener(){
 				
         	public void onClick(View view){
-        		//Used to open the uber app
         		Intent i;
         		PackageManager manager = getPackageManager();
         		try {
