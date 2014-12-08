@@ -18,5 +18,7 @@
     <string name="debug">debug</string>
     <string name="title_activity_drink_list">DrinkList</string>
     <string name="title_activity_single_item_view">SingleItemView</string>
+    <string name="title_activity_alcohol_list">AlcoholList</string>
+    <string name="title_activity_single_item_view_alcohol">SingleItemViewAlcohol</string>
 
 </resources>
