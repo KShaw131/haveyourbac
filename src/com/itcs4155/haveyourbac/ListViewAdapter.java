@@ -9,10 +9,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ListViewAdapter extends BaseAdapter {
+public class ListViewAdapter extends BaseAdapter implements Filterable {
 
 	// Declare Variables
 	Context context;
@@ -20,6 +22,8 @@ public class ListViewAdapter extends BaseAdapter {
 	//ImageLoader imageLoader;
 	private List<Drink> Drinklist = null;
 	private ArrayList<Drink> arraylist;
+	private ArrayList<Drink> mStringFilterList;
+	ValueFilter valueFilter;
 
 	public ListViewAdapter(Context context,
 			List<Drink> Drinklist) {
@@ -28,6 +32,7 @@ public class ListViewAdapter extends BaseAdapter {
 		inflater = LayoutInflater.from(context);
 		this.arraylist = new ArrayList<Drink>();
 		this.arraylist.addAll(Drinklist);
+		mStringFilterList = arraylist;
 		//imageLoader = new ImageLoader(context);
 	}
 
@@ -94,6 +99,56 @@ public class ListViewAdapter extends BaseAdapter {
 			}
 		});
 		return view;
+	}
+	
+
+	@Override
+	public Filter getFilter() {
+	    if(valueFilter==null) {
+
+	        valueFilter=new ValueFilter();
+	    }
+
+	    return valueFilter;
+	}
+	
+	private class ValueFilter extends Filter {
+
+	    //Invoked in a worker thread to filter the data according to the constraint.
+	    @Override
+	    protected FilterResults performFiltering(CharSequence constraint) {
+	        FilterResults results=new FilterResults();
+	        if(constraint!=null && constraint.length()>0){
+	            ArrayList<Drink> filterList=new ArrayList<Drink>();
+	            for(int i=0;i<mStringFilterList.size();i++)
+	            {
+	                if((mStringFilterList.get(i).getBeer().toUpperCase()).contains(constraint.toString().toUpperCase()) || (mStringFilterList.get(i).getBrand().toUpperCase()).contains(constraint.toString().toUpperCase()))
+	                {
+	                	Drink drink = new Drink();
+	                    drink.setBeer(mStringFilterList.get(i).getBeer());
+	                    drink.setBrand(mStringFilterList.get(i).getBrand());
+	                    drink.setAlcoholContent(mStringFilterList.get(i).getAlcoholContent());
+	                    filterList.add(drink);
+	                }
+	            }
+	            results.count=filterList.size();
+	            results.values=filterList;
+	        }else{
+	            results.count=mStringFilterList.size();
+	            results.values=mStringFilterList;
+	        }
+	        return results;
+	    }
+
+
+	    //Invoked in the UI thread to publish the filtering results in the user interface.
+	    @SuppressWarnings("unchecked")
+	    @Override
+	    protected void publishResults(CharSequence constraint,
+	            FilterResults results) {
+	        Drinklist=(List<Drink>) results.values;
+	        notifyDataSetChanged();
+	    }
 	}
 
 }

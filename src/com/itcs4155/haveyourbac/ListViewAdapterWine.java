@@ -9,24 +9,31 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ListViewAdapterWine extends BaseAdapter {
+public class ListViewAdapterWine extends BaseAdapter implements Filterable {
 
 	// Declare Variables
 	Context context;
 	LayoutInflater inflater;
+	//
 	private List<Wine> Winelist = null;
 	private ArrayList<Wine> arraylist;
+	private ArrayList<Wine> mStringFilterList;
+	ValueFilter valueFilter;
 
 	public ListViewAdapterWine(Context context,
 			List<Wine> Winelist) {
+		super();
 		this.context = context;
 		this.Winelist = Winelist;
 		inflater = LayoutInflater.from(context);
 		this.arraylist = new ArrayList<Wine>();
 		this.arraylist.addAll(Winelist);
+		mStringFilterList = arraylist;
 	}
 
 	public class ViewHolder {
@@ -79,6 +86,54 @@ public class ListViewAdapterWine extends BaseAdapter {
 			}
 		});
 		return view;
+	}
+	
+	@Override
+	public Filter getFilter() {
+	    if(valueFilter==null) {
+
+	        valueFilter=new ValueFilter();
+	    }
+
+	    return valueFilter;
+	}
+	
+	private class ValueFilter extends Filter {
+
+	    //Invoked in a worker thread to filter the data according to the constraint.
+	    @Override
+	    protected FilterResults performFiltering(CharSequence constraint) {
+	        FilterResults results=new FilterResults();
+	        if(constraint!=null && constraint.length()>0){
+	            ArrayList<Wine> filterList=new ArrayList<Wine>();
+	            for(int i=0;i<mStringFilterList.size();i++)
+	            {
+	                if((mStringFilterList.get(i).getWine().toUpperCase()).contains(constraint.toString().toUpperCase()))
+	                {
+	                	Wine drink = new Wine();
+	                    drink.setWine(mStringFilterList.get(i).getWine());
+	                    drink.setAlcoholContent(mStringFilterList.get(i).getAlcoholContent());
+	                    filterList.add(drink);
+	                }
+	            }
+	            results.count=filterList.size();
+	            results.values=filterList;
+	        }else{
+	            results.count=mStringFilterList.size();
+	            results.values=mStringFilterList;
+	        }
+	        return results;
+	    }
+
+
+	    //Invoked in the UI thread to publish the filtering results in the user interface.
+	    @SuppressWarnings("unchecked")
+	    @Override
+	    protected void publishResults(CharSequence constraint,
+	            FilterResults results) {
+	        Winelist=(List<Wine>) results.values;
+	        notifyDataSetChanged();
+	    }
 	}
 
 }
