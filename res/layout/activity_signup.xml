@@ -14,7 +14,6 @@
         android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="@string/create_username"
-        android:textColor="#34495e"
         android:textColorHint="#34495e" >
 
         <requestFocus />
@@ -103,7 +102,7 @@
         android:layout_above="@+id/signupWeight"
         android:layout_centerHorizontal="true"
         android:text="User Profile Settings:"
-        android:textColor="#34495e"
+        android:textColor="#ffffff"
         android:textColorHint="#34495e" />
 
 </RelativeLayout>

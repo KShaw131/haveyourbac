@@ -35,6 +35,9 @@ public class MyTab extends Activity {
 		txtbrand.setText(brand);
 		txtalcoholcontent.setText(alcoholContent);
 		
+		Calculator calc = new Calculator();
+		calc.calculatedBAC();
+		
 		final Button chooseDrink = (Button)findViewById(R.id.chooseDrinkButton);
 		
 		chooseDrink.setOnClickListener(new View.OnClickListener(){
@@ -45,9 +48,6 @@ public class MyTab extends Activity {
     	}
     
   });
-
-		
-        
 		 //Button to goto close tab screen
         final Button closeTab = (Button)findViewById(R.id.closeMe);
 		
@@ -57,12 +57,9 @@ public class MyTab extends Activity {
         		//Used to goto my UserLoginPage
         		Intent intent = new Intent(getBaseContext(), CloseTabScreen.class);
         		startActivity(intent);
-        		
         	}
-        
       });
         
-		
 		final ImageButton uber = (ImageButton)findViewById(R.id.uberButton);
 		
 			uber.setOnClickListener(new View.OnClickListener(){

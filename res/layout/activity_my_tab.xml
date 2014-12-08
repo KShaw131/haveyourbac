@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/myTabBackground"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:background="#3498db"
     tools:context="${relativePackage}.${activityClass}" >
@@ -16,7 +16,7 @@
         android:text="@string/close_tab" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/bacLevelLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/chooseDrinkButton"
@@ -56,24 +56,28 @@
         android:src="@drawable/uber_logo" />
 
     <TextView
+        android:id="@+id/latestBeer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/myTabHeader"
+        android:layout_below="@+id/bacLevelLabel"
+        android:text="Beer" />
+
+    <TextView
         android:id="@+id/latestBrand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/latestBeer"
-        android:layout_below="@+id/latestBeer" />
+        android:layout_alignRight="@+id/latestBeer"
+        android:layout_centerVertical="true"
+        android:text="Brand" />
 
     <TextView
         android:id="@+id/latestAlcoholContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/latestBrand"
-        android:layout_below="@+id/latestBrand" />
-
-    <TextView
-        android:id="@+id/latestBeer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
+        android:layout_below="@+id/latestBrand"
+        android:layout_marginTop="20dp"
+        android:text="Alcohol" />
 
 </RelativeLayout>
