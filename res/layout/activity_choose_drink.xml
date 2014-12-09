@@ -28,7 +28,7 @@
         android:layout_marginTop="35dp"
         android:background="@drawable/wine_final"
         android:scaleType="fitXY"
-        android:src="@drawable/wine_final" />
+        android:src="@drawable/wine_final"/>
 
     <ImageButton
         android:id="@+id/chooseLiquorButton"
