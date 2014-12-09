@@ -26,6 +26,7 @@ public class ChooseDrink extends Activity {
     	public void onClick(View view){
     		Intent intent = new Intent(getBaseContext(), DrinkList.class);
     		startActivity(intent);
+    		finish();
     	}
     
 		});
