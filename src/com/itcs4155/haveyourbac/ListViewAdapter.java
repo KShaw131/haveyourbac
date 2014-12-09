@@ -96,6 +96,7 @@ public class ListViewAdapter extends BaseAdapter implements Filterable {
 //						(Drinklist.get(position).getFlag()));
 				// Start SingleItemView Class
 				context.startActivity(intent);
+				((DrinkList)context).finish();
 			}
 		});
 		return view;

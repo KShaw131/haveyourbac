@@ -14,7 +14,7 @@ public class SingleItemView extends Activity {
 	String brand;
 	String alcoholContent;
 	Context context;
- 
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,7 +28,8 @@ public class SingleItemView extends Activity {
 		brand = i.getStringExtra("brand");
 		// Get the result of population
 		alcoholContent = i.getStringExtra("alcoholContent");
- 
+
+
 		// Locate the TextViews in singleitemview.xml
 		final TextView txtbeer = (TextView) findViewById(R.id.beer2);
 		final TextView txtbrand = (TextView) findViewById(R.id.brand2);
@@ -45,11 +46,16 @@ final Button add = (Button)findViewById(R.id.addWine);
 			add.setOnClickListener(new View.OnClickListener(){
 				
 				public void onClick(View arg0) {
-					Intent intent = new Intent(getBaseContext(), MyTab.class);
-					intent.putExtra("drink", txtbeer.getText());
-					intent.putExtra("brand", txtbrand.getText());
-					intent.putExtra("alcoholContent", txtalcoholcontent.getText());
-					startActivity(intent);
+					
+//					Intent intent = new Intent(getBaseContext(), MyTab.class);
+//					intent.putExtra("drink", txtbeer.getText());
+//					intent.putExtra("brand", txtbrand.getText());
+//					intent.putExtra("alcoholContent", txtalcoholcontent.getText());
+					BACCarrier carry = new BACCarrier();
+					carry.setDrink((String) txtbeer.getText());
+					carry.setDrink((String) txtbrand.getText());
+					carry.setDrink((String) txtalcoholcontent.getText());
+					finish();
 				}
 			
 			});
