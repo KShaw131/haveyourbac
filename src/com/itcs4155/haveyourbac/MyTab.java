@@ -34,19 +34,19 @@ public double alcoholDouble = 0.00;
 		
 		Intent i = getIntent();
 		// Get the intent
-		String beer = i.getStringExtra("beer");
-		// Get the result of beer
+		String drink = i.getStringExtra("drink");
+		// Get the result of drink
 		String brand = i.getStringExtra("brand");
 		// Get the result of brand
 		String alcoholContent = i.getStringExtra("alcoholContent");
 		
-		final TextView txtbeer = (TextView) findViewById(R.id.lastDrinkName);
+		final TextView txtdrink = (TextView) findViewById(R.id.lastDrinkName);
 		final TextView txtbrand = (TextView) findViewById(R.id.lastDrinkDetails);
 		final TextView txtalcoholcontent = (TextView) findViewById(R.id.lastDrinkAlch);
 		
 
 		// Set results to the TextViews
-		txtbeer.setText(beer);
+		txtdrink.setText(drink);
 		txtbrand.setText(brand);
 		txtalcoholcontent.setText(alcoholContent);
 //		double alcohol;
