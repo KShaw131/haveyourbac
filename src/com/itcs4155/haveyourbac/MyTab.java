@@ -43,6 +43,18 @@ public double alcoholDouble = 0.00;
 		final TextView txtdrink = (TextView) findViewById(R.id.lastDrinkName);
 		final TextView txtbrand = (TextView) findViewById(R.id.lastDrinkDetails);
 		final TextView txtalcoholcontent = (TextView) findViewById(R.id.lastDrinkAlch);
+		final TextView txtlastDrinkHeader = (TextView) findViewById(R.id.lastDrinkHeader);
+		
+		final Button reorderDrink = (Button)findViewById(R.id.reorderDrink);
+		if(drink==null){
+			reorderDrink.setVisibility(View.GONE);
+			reorderDrink.setEnabled(false);
+			txtlastDrinkHeader.setVisibility(View.GONE);
+		}else{
+			reorderDrink.setVisibility(View.VISIBLE);
+			reorderDrink.setEnabled(true);
+			txtlastDrinkHeader.setVisibility(View.VISIBLE);
+		}
 		
 
 		// Set results to the TextViews
