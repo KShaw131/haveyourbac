@@ -9,6 +9,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -23,6 +24,7 @@ import android.widget.TextView;
 public class MyTab extends Activity {
 	
 public double alcoholDouble = 0.00;
+
 
 
 	@Override

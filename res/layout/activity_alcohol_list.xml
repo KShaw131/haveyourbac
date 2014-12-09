@@ -23,8 +23,8 @@
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/searchTextAlcohol" >
-
     </ListView>
- 
+
 </RelativeLayout>
