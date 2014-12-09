@@ -10,9 +10,9 @@ import android.widget.TextView;
  
 public class SingleItemViewAlcohol extends Activity {
 	// Declare Variables
-	String drink;
-	String type;
-	String alcoholContent;
+	String drink2;
+	String type2;
+	String alcoholContent6;
 	Context context;
  
 	@Override
@@ -22,12 +22,9 @@ public class SingleItemViewAlcohol extends Activity {
 		setContentView(R.layout.activity_single_item_view_alcohol);
  
 		Intent i = getIntent();
-		// Get the result of rank
-		drink = i.getStringExtra("drink");
-		// Get the result of country
-		type = i.getStringExtra("type");
-		// Get the result of population
-		alcoholContent = i.getStringExtra("alcoholContent");
+		drink2 = i.getStringExtra("drink");
+		type2 = i.getStringExtra("type");
+		alcoholContent6 = i.getStringExtra("alcoholContent");
  
 		// Locate the TextViews in singleitemview.xml
 		final TextView txtdrink = (TextView) findViewById(R.id.drink2);
@@ -35,9 +32,9 @@ public class SingleItemViewAlcohol extends Activity {
 		final TextView txtalcoholcontent = (TextView) findViewById(R.id.alcoholcontent6);
  
 		// Set results to the TextViews
-		txtdrink.setText(drink);
-		txttype.setText(type);
-		txtalcoholcontent.setText(alcoholContent);
+		txtdrink.setText(drink2);
+		txttype.setText(type2);
+		txtalcoholcontent.setText(alcoholContent6);
 		
 final Button cancel = (Button)findViewById(R.id.cancelAlcohol);
 final Button add = (Button)findViewById(R.id.addAlcohol);

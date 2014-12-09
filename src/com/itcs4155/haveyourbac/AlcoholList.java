@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,12 +12,12 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ListView;
- 
+
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
- 
+
 public class AlcoholList extends Activity {
 	// Declare Variables
 	ListView listview;
@@ -25,7 +26,8 @@ public class AlcoholList extends Activity {
 	ListViewAdapterAlcohol adapter;
 	private List<Alcohol> Alcohollist = null;
 	EditText inputSearch;
- 
+
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,32 +35,32 @@ public class AlcoholList extends Activity {
 		setContentView(R.layout.activity_alcohol_list);
 		// Execute RemoteDataTask AsyncTask
 		new RemoteDataTask().execute();
-		
+
 		inputSearch = (EditText) findViewById(R.id.searchTextAlcohol);
-		
-		 inputSearch.addTextChangedListener(new TextWatcher() {
-             
-	            @Override
-	            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-	                // When user changed the Text
-	            	adapter.getFilter().filter(cs); 
-	            }
-	             
-	            @Override
-	            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-	                    int arg3) {
-	                // TODO Auto-generated method stub
-	                 
-	            }
-	             
-	            @Override
-	            public void afterTextChanged(Editable arg0) {
-	                // TODO Auto-generated method stub                          
-	            }
-	        });
-		
+
+		inputSearch.addTextChangedListener(new TextWatcher() {
+
+			@Override
+			public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+				// When user changed the Text
+				adapter.getFilter().filter(cs); 
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+					int arg3) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void afterTextChanged(Editable arg0) {
+				// TODO Auto-generated method stub                          
+			}
+		});
+
 	}
- 
+
 	// RemoteDataTask AsyncTask
 	private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
 		@Override
@@ -74,7 +76,7 @@ public class AlcoholList extends Activity {
 			// Show progressdialog
 			mProgressDialog.show();
 		}
- 
+
 		@Override
 		protected Void doInBackground(Void... params) {
 			// Create the array
@@ -101,7 +103,7 @@ public class AlcoholList extends Activity {
 			}
 			return null;
 		}
- 
+
 		@Override
 		protected void onPostExecute(Void result) {
 			// Locate the listview in listview_main.xml
