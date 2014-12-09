@@ -26,6 +26,7 @@ public class ChooseDrink extends Activity {
     	public void onClick(View view){
     		Intent intent = new Intent(getBaseContext(), DrinkList.class);
     		startActivity(intent);
+    		finish();
     	}
     
 		});
@@ -34,6 +35,7 @@ public class ChooseDrink extends Activity {
 	    	public void onClick(View view){
 	    		Intent intent = new Intent(getBaseContext(), AlcoholList.class);
 	    		startActivity(intent);
+	    		finish();
 	    	}
 	    
 			});
@@ -42,11 +44,10 @@ public class ChooseDrink extends Activity {
 	    	public void onClick(View view){
 	    		Intent intent = new Intent(getBaseContext(), WineList.class);
 	    		startActivity(intent);
+	    		finish();
 	    	}
 	    
 			});
-		
-		
 		
 	}
 }

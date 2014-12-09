@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
         		//Used to goto my UserLoginPage
         		Intent intent = new Intent(MainActivity.this, UserLogin.class);
         		startActivity(intent);
-        		
+        		finish();
         		
         	}
         

@@ -21,20 +21,20 @@ import android.widget.Toast;
 
 public class Calculator {
 	
-	double bac;
+	private double bac;
 	
-	public void setBac(double bac){
-		
-		this.bac = bac;
-	}
-	
-	public double calcMe(double alcoholInOunces)
-	{
-		calculatedBAC(alcoholInOunces);
+	public double getBac(){
 		return bac;
 	}
+//	public void setBac(double b){
+//		this.bac = b;
+//	}
+	public void calcMe()
+	{
+		calculatedBAC();
+	}
 
-	public void calculatedBAC(final double alcoholInOunces){
+	public void calculatedBAC(){
 
 		ParseUser currentUser = ParseUser.getCurrentUser();
 		if (currentUser != null) {
@@ -69,8 +69,10 @@ public class Calculator {
 						} else{
 							ratio = 0.66;
 						}
+						BACCarrier carry = new BACCarrier();
+						double alcoholInOunces = Double.parseDouble(carry.getAlcoholContent());
 
-						//setBac(alcoholInOunces* 5.14/doubleWeight * ratio); //- (.015 * timeTaken);
+						bac = alcoholInOunces* 5.14/doubleWeight * ratio; //- (.015 * timeTaken);
 						
 					}
 				}
