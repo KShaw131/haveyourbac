@@ -20,22 +20,9 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Parse.initialize(this, "MWiazlI1gWZiFz2rADwQ1Z3MKPrS5jVEYAHBko5W", "XNCKhjDQGUPuxgdKBHXrBW2xYHQgZHs8O9MpsZxr");
+        Parse.initialize(this, "WxvvNBepff4Mh6v2PzR1SRHtcuibnbu76hxfJnuq", "zHl8ntxqYMpnAEfndojfroqo7TLgbOiYDGdJ6Hjf");
         setContentView(R.layout.activity_main);
         
-        //Setting application id and client key
-        
-        //Subscribing app to receive push notifications from Parse
-        ParsePush.subscribeInBackground("HaveYourBAC", new SaveCallback() {
-        	  @Override
-        	  public void done(ParseException e) {
-        	    if (e == null) {
-        	      Log.d("com.parse.push", "successfully subscribed to the broadcast channel.");
-        	    } else {
-        	      Log.e("com.parse.push", "failed to subscribe for push", e);
-        	    }
-        	  }
-        	});
         
         //Button to goto login screen
         final Button agree = (Button)findViewById(R.id.agree);

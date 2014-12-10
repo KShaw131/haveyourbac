@@ -90,6 +90,19 @@ public class MyTab extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		
+        ParsePush.subscribeInBackground("HaveYourBAC", new SaveCallback() {
+      	  @Override
+      	  public void done(ParseException e) {
+      	    if (e == null) {
+      	      Log.d("com.parse.push", "successfully subscribed to the broadcast channel.");
+      	    } else {
+      	      Log.e("com.parse.push", "failed to subscribe for push", e);
+      	    }
+      	    Log.d("com.parse.push", "crappy :(");
+      	  }
+   
+      	});
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_tab);
 		txtbeer = (TextView) findViewById(R.id.lastDrinkName);

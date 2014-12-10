@@ -37,7 +37,7 @@ public class SingleItemViewAlcohol extends Activity {
 		// Set results to the TextViews
 		txtdrink.setText(drink);
 		txttype.setText(type);
-		txtalcoholcontent.setText(alcoholContent + "%");
+		txtalcoholcontent.setText(alcoholContent);
 
 
 		final Button add = (Button)findViewById(R.id.addAlcohol);

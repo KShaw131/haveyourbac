@@ -79,4 +79,12 @@
         android:textColor="#FFFFFF"
         android:textSize="25sp" />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/alcoholcontent2"
+        android:layout_toRightOf="@+id/alcoholcontent2"
+        android:text="%" />
+
 </RelativeLayout>

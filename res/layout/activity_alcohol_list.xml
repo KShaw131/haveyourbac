@@ -27,10 +27,6 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/searchTextAlcohol"
         android:background="#000000" >
-
     </ListView>
-
-    <TextView android:textColor="#FFFFFF" >
-    </TextView>
 
 </RelativeLayout>
