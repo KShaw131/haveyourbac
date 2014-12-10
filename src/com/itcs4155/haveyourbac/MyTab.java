@@ -44,7 +44,7 @@ public class MyTab extends Activity {
 	double totalTime;
 	boolean startTimeBool;
 	double startTime;
-	public static ArrayList<GraphPoints> bacPoints = new ArrayList<GraphPoints>();
+	public static ArrayList<GraphPoints> bacPoints;
 	
 	private static boolean isFirstScreen;
 	
@@ -66,6 +66,7 @@ public class MyTab extends Activity {
 	      	});
 		
 		setContentView(R.layout.activity_my_tab);
+		bacPoints = new ArrayList<GraphPoints>();
 		txtbeer = (TextView) findViewById(R.id.lastDrinkName);
 		txtbrand = (TextView) findViewById(R.id.lastDrinkDetails); 
 		txtalcoholcontent = (TextView) findViewById(R.id.lastDrinkAlch);
@@ -257,6 +258,9 @@ public class MyTab extends Activity {
 	private void calculateBAC(final double t){
 		if(startTimeBool==false){
 			startTime = System.currentTimeMillis();
+			reorderDrink.setEnabled(true);
+			reorderDrink.setVisibility(View.VISIBLE);
+			lastDrinkHeader.setVisibility(View.VISIBLE);
 			startTimeBool=true;
 		}
 		ParseUser currentUser = ParseUser.getCurrentUser();
