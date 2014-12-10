@@ -13,13 +13,17 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import android.app.Activity;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -44,9 +48,16 @@ public class MyTab extends Activity {
 	double totalTime;
 	boolean startTimeBool;
 	double startTime;
+	boolean firstTime;
 	public static ArrayList<GraphPoints> bacPoints;
 	
 	private static boolean isFirstScreen;
+	
+	NotificationCompat.Builder limitBuilder =
+		    new NotificationCompat.Builder(this)
+		    .setSmallIcon(R.drawable.bac_icon)
+		    .setContentTitle("BAC Alert")
+		    .setContentText("Your blood alcohol content is currently over the legal limit (0.08) to operate a vehicle");
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -87,6 +98,7 @@ public class MyTab extends Activity {
 		reorderDrink.setVisibility(View.GONE);
 		lastDrinkHeader.setVisibility(View.GONE);
 		startTimeBool = false;
+		firstTime = false;
 		
 	}
 	
@@ -140,24 +152,6 @@ public class MyTab extends Activity {
 		
 	}
 
-//	@Override
-//
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.activity_my_tab);
-//		txtbeer = (TextView) findViewById(R.id.lastDrinkName);
-//		txtbrand = (TextView) findViewById(R.id.lastDrinkDetails); 
-//		txtalcoholcontent = (TextView) findViewById(R.id.lastDrinkAlch);
-//		drink = "";
-//		brand = "";
-//		content = "";
-//		alcoholInOunces = 0;
-//		txtbeer.setText("");
-//		txtbrand.setText("");
-//		txtalcoholcontent.setText("");
-//		Log.d("create", "called");
-//		   
-//		initializeUI();
-//	}
 	@Override
 
 	public void onConfigurationChanged(Configuration newConfig){
@@ -316,9 +310,26 @@ public class MyTab extends Activity {
 						txtbrand.setText(brand);
 						txtalcoholcontent.setText(content);
 						bac.setText(testString);
+						if(setAlc>=0.08){
+						bac.setTextColor(Color.RED);
+						if(firstTime==false){
+							// Sets an ID for the notification
+							int mNotificationId = 001;
+							// Gets an instance of the NotificationManager service
+							NotificationManager mNotifyMgr = 
+							        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+							// Builds the notification and issues it.
+							mNotifyMgr.notify(mNotificationId, limitBuilder.build());
+						firstTime=true;
+						}
+						}
+						else if(0.04<=setAlc&&setAlc<0.08){
+							bac.setTextColor(Color.YELLOW);
+						}
 					}
 				}
 					});	
+			
 			new TimerTask(startTime).execute();
 		}
 		
