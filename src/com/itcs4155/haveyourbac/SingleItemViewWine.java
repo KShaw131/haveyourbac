@@ -47,6 +47,7 @@ public class SingleItemViewWine extends Activity {
 						intent.putExtra("drink", txtwine.getText());
 						intent.putExtra("brand", "");
 						intent.putExtra("alcoholContent", txtalcoholcontent2.getText());
+						intent.putExtra("ounces", 5.0);
 						setResult(1, intent);
 						finish();
 					}

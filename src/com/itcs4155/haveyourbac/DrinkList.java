@@ -28,7 +28,7 @@ public class DrinkList extends Activity {
 	EditText inputSearch;
  
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == 1) {
+		if (resultCode == 1) {
 			setResult(1,data);
 			finish();
 		}

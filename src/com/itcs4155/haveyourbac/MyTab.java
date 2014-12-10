@@ -26,16 +26,21 @@ public class MyTab extends Activity {
 	private TextView txtbeer;
 	private TextView txtbrand;
 	private TextView txtalcoholcontent;
+	private double alcoholInOunces;
 	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		
-		if (requestCode == 1) {
+		if (resultCode == 1) {
 			drink = data.getStringExtra("drink");
 			txtbeer.setText(drink);
 			brand = data.getStringExtra("brand");
 			txtbrand.setText(brand);
 			alcoholContent = data.getStringExtra("alcoholContent");
 			txtalcoholcontent.setText(alcoholContent);
+			double myAlcoholInOunces = data.getDoubleExtra("ounces", 0);
+			double myContent = Double.parseDouble(alcoholContent);
+			alcoholInOunces += myContent * myAlcoholInOunces * 0.01;
+			calculateBAC();
 		}
 		
 	}
@@ -53,6 +58,9 @@ public class MyTab extends Activity {
 		// Get the result of population
 		String alcoholContent = i.getStringExtra("alcoholContent");
 		
+		alcoholInOunces = 0;
+		
+		
 		txtbeer = (TextView) findViewById(R.id.lastDrinkName);
 		txtbrand = (TextView) findViewById(R.id.lastDrinkDetails);
 		txtalcoholcontent = (TextView) findViewById(R.id.lastDrinkAlch);
@@ -64,51 +72,7 @@ public class MyTab extends Activity {
 		
 		
 		/*Calculator*/
-
-		ParseUser currentUser = ParseUser.getCurrentUser();
-		if (currentUser != null) {
-			// get weight and gender and save them to global variables
-			ParseQuery<ParseObject> userInfoQuery = ParseQuery.getQuery("_User");
-			String user = currentUser.getUsername();
-			userInfoQuery.whereEqualTo("username", user);
-			//			userInfoQuery.whereEqualTo("weight", user);
-			Log.d(user, "This should be the username");
-			
-			userInfoQuery.getFirstInBackground(new GetCallback<ParseObject>()
-					{
-				public void done(ParseObject object, ParseException e)
-				{
-					if (object == null) 
-					{
-						Log.d(";(", "Didnt work");
-					} 
-					else 
-					{
-						String weight = object.getString("weight").toString();
-						String gender = object.getString("gender").toString();
-
-						double doubleWeight = Double.parseDouble(weight);
-
-						double ratio;
-
-						if(gender.equals("Male")){
-							ratio = 0.73;
-						} else{
-							ratio = 0.66;
-						}
-						double alcoholInOunces = 3.0;
-						double setAlc = (alcoholInOunces* 5.14/doubleWeight * ratio); //- (.015 * timeTaken);
-						String testString = ""+setAlc;
-						TextView bac = (TextView)findViewById(R.id.bacLevelLabel);
-						bac.setText(testString);
-
-					}
-				}
-					});	
-
-		}else{
-
-		}
+		calculateBAC();
 				
 		/*Choose Drink Button*/
 		
@@ -168,6 +132,51 @@ public class MyTab extends Activity {
         	}
         
       });
+	}
+	
+	private void calculateBAC(){
+		ParseUser currentUser = ParseUser.getCurrentUser();
+		if (currentUser != null) {
+			// get weight and gender and save them to global variables
+			ParseQuery<ParseObject> userInfoQuery = ParseQuery.getQuery("_User");
+			String user = currentUser.getUsername();
+			userInfoQuery.whereEqualTo("username", user);
+			//			userInfoQuery.whereEqualTo("weight", user);
+			Log.d(user, "This should be the username");
+			
+			userInfoQuery.getFirstInBackground(new GetCallback<ParseObject>()
+					{
+				public void done(ParseObject object, ParseException e)
+				{
+					if (object == null) 
+					{
+						Log.d(";(", "Didnt work");
+					} 
+					else 
+					{
+						String weight = object.getString("weight").toString();
+						String gender = object.getString("gender").toString();
+
+						double doubleWeight = Double.parseDouble(weight);
+
+						double ratio;
+
+						if(gender.equals("Male")){
+							ratio = 0.73;
+						} else{
+							ratio = 0.66;
+						}
+						double setAlc = (alcoholInOunces* 5.14/doubleWeight * ratio); //- (.015 * timeTaken);
+						String testString = String.format("%.2f", setAlc);
+						TextView bac = (TextView)findViewById(R.id.bacValue);
+						bac.setText(testString);
+					}
+				}
+					});	
+
+		}else{
+
+		}
 	}
 	
 }

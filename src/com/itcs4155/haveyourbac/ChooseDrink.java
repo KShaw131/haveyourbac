@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 public class ChooseDrink extends Activity {
 
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == 1) {
+		if (resultCode == 1) {
 			setResult(1,data);
 			finish();
 		}

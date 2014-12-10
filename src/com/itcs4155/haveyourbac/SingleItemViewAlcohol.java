@@ -49,6 +49,7 @@ final Button add = (Button)findViewById(R.id.addAlcohol);
 					intent.putExtra("drink", txtdrink.getText());
 					intent.putExtra("brand", txttype.getText());
 					intent.putExtra("alcoholContent", txtalcoholcontent.getText());
+					intent.putExtra("ounces", 1.5);
 					setResult(1, intent);
 					finish();
 				}

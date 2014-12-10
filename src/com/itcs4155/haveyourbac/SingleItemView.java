@@ -49,10 +49,10 @@ final Button add = (Button)findViewById(R.id.addWine);
 					intent.putExtra("drink", txtbeer.getText());
 					intent.putExtra("brand", txtbrand.getText());
 					intent.putExtra("alcoholContent", txtalcoholcontent.getText());
+					intent.putExtra("ounces", 12.0);
 					setResult(1, intent);
 					finish();
-				}
-			
+				}	
 			});
 		
         cancel.setOnClickListener(new View.OnClickListener(){
