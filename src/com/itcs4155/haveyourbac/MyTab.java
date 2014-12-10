@@ -9,6 +9,7 @@ import com.parse.ParseUser;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,14 +21,18 @@ import android.widget.TextView;
 
 public class MyTab extends Activity {
 	
-	private String drink = "";
-	private String brand = "";
-	private String content = "";
+	private String drink;
+	private String brand;
+	private String content;
 	private TextView txtbeer;
 	private TextView txtbrand;
 	private TextView txtalcoholcontent;
+	private TextView lastDrinkHeader;
 	private double alcoholInOunces;
 	private double lastDrinkOunces;
+	private Button reorderDrink;
+	
+	private static boolean isFirstScreen;
 	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		
@@ -80,43 +85,51 @@ public class MyTab extends Activity {
 	}
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_tab);
-		
-		Intent i = getIntent();
-		// Get the result of rank
-		String beer = i.getStringExtra("beer");
-		// Get the result of country
-		String brand = i.getStringExtra("brand");
-		// Get the result of population
-		String alcoholContent = i.getStringExtra("alcoholContent");
-		
-		alcoholInOunces = 0;
-		
-		
 		txtbeer = (TextView) findViewById(R.id.lastDrinkName);
-		txtbrand = (TextView) findViewById(R.id.lastDrinkDetails);
+		txtbrand = (TextView) findViewById(R.id.lastDrinkDetails); 
 		txtalcoholcontent = (TextView) findViewById(R.id.lastDrinkAlch);
+		drink = "";
+		brand = "";
+		content = "";
+		alcoholInOunces = 0;
+		txtbeer.setText("");
+		txtbrand.setText("");
+		txtalcoholcontent.setText("");
+		Log.d("create", "called");
+		initializeUI();
+		reorderDrink = (Button)findViewById(R.id.reorderDrink);
+		lastDrinkHeader= (TextView) findViewById(R.id.lastDrinkHeader);
+		reorderDrink.setEnabled(false);
+		reorderDrink.setVisibility(View.GONE);
+		lastDrinkHeader.setVisibility(View.GONE);
+	}
+	@Override
+	public void onConfigurationChanged(Configuration newConfig){
+		super.onConfigurationChanged(newConfig);
+		setContentView(R.layout.activity_my_tab);
+		initializeUI();
+	}
+	protected void initializeUI() {
 
 		// Set results to the TextViews
-		txtbeer.setText(beer);
-		txtbrand.setText(brand);
-		txtalcoholcontent.setText(alcoholContent);
 		
 		
 		/*Calculator*/
 		calculateBAC();
 		
 		/* Reorder Drink Button*/
-final Button reorder = (Button)findViewById(R.id.reorderDrink);
+
 		
-		reorder.setOnClickListener(new View.OnClickListener(){
+		reorderDrink.setOnClickListener(new View.OnClickListener(){
 			public void onClick(View view){
 				double myContent = Double.parseDouble(content); 
 				
 				txtbeer.setText(drink);
 				txtbrand.setText("");
+				
 				
 				alcoholInOunces += myContent * lastDrinkOunces * 0.01;
 				calculateBAC();
@@ -185,6 +198,7 @@ final Button reorder = (Button)findViewById(R.id.reorderDrink);
       });
 	}
 	
+		
 	private void calculateBAC(){
 		ParseUser currentUser = ParseUser.getCurrentUser();
 		if (currentUser != null) {
@@ -220,12 +234,13 @@ final Button reorder = (Button)findViewById(R.id.reorderDrink);
 						double setAlc = (alcoholInOunces* 5.14/doubleWeight * ratio); //- (.015 * timeTaken);
 						String testString = String.format("%.2f", setAlc);
 						TextView bac = (TextView)findViewById(R.id.bacValue);
+						txtbeer.setText(drink);
+						txtbrand.setText(brand);
+						txtalcoholcontent.setText(content);
 						bac.setText(testString);
 					}
 				}
 					});	
-
-		}else{
 
 		}
 	}

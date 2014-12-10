@@ -78,7 +78,9 @@
         </activity>
         <activity
             android:name=".MyTab"
-            android:label="@string/title_activity_my_tab" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_my_tab"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".ChooseDrink"

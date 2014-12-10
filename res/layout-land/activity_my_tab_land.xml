@@ -1,0 +1,143 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myTabBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#34495e"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/myTabHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/uberButton"
+        android:layout_alignParentTop="true"
+        android:text="My Tab"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#34495e"
+        android:textSize="30sp" />
+
+    <ImageButton
+        android:id="@+id/uberButton"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="false"
+        android:contentDescription="uber button"
+        android:scaleType="fitXY"
+        android:src="@drawable/uber_logo" />
+
+    <TextView
+        android:id="@+id/bacLevelLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myTabHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="BAC Level"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/bacValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bacLevelLabel"
+        android:layout_centerHorizontal="true"
+        android:text="0.00"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp" />
+
+    <Button
+        android:id="@+id/closeMe"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/myTabHeader"
+        android:layout_marginTop="0dp"
+        android:minHeight="100dip"
+        android:text="@string/close_tab"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/chooseDrinkButton"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Choose\nDrink"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/reorderDrink"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/closeMe"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:maxHeight="110dp"
+        android:minWidth="50dp"
+        android:text="Reorder Last Drink"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/lastDrinkHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reorderDrink"
+        android:layout_centerHorizontal="true"
+        android:text="Last Drink:"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/lastDrinkName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lastDrinkHeader"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/lastDrinkDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lastDrinkName"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/lastDrinkAlch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lastDrinkDetails"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/customButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/myTabHeader"
+        android:minHeight="90dp"
+        android:text="@string/add_custom_drink"
+        android:textSize="20sp" />
+
+</RelativeLayout>
