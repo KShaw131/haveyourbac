@@ -89,6 +89,7 @@ public class MyTab extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_tab);
 		txtbeer = (TextView) findViewById(R.id.lastDrinkName);
