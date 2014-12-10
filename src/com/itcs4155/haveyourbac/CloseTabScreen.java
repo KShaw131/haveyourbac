@@ -1,4 +1,5 @@
 package com.itcs4155.haveyourbac;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 public class CloseTabScreen extends FragmentActivity implements OnSeekBarChangeListener {
 
     private LineChart mChart;
+    //ArrayList<GraphPoints> bacPoints = new ArrayList<GraphPoints>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +77,7 @@ public class CloseTabScreen extends FragmentActivity implements OnSeekBarChangeL
         y.setLabelCount(5);
 
         // add data
-        setData(12, 10);
+        setData(MyTab.bacPoints.size(), 10);
         
         mChart.animateXY(2000, 2000);
 
@@ -96,7 +98,12 @@ public class CloseTabScreen extends FragmentActivity implements OnSeekBarChangeL
     }
 
     private void setData(int count, float range) {
-
+    	
+    	int max = 50;
+    	int iteration = 1;
+    	if (count > max)
+    			iteration = count / max;
+    	
         ArrayList<String> xVals = new ArrayList<String>();
         for (int i = 0; i < count; i++) {
             xVals.add((5 +i) + "Minutes");
@@ -106,9 +113,7 @@ public class CloseTabScreen extends FragmentActivity implements OnSeekBarChangeL
 
         for (int i = 0; i < count; i++) {
             float mult = (range + 1);
-            float val = (float) (Math.random());// + (float)
-                                                           // ((mult *
-                                                           // 0.1) / 10);
+            float val = (float) MyTab.bacPoints.get(i).getBac();
             vals1.add(new Entry(val, i));
         }
         
@@ -140,17 +145,3 @@ public class CloseTabScreen extends FragmentActivity implements OnSeekBarChangeL
 		
 	}
 }
-
-//import android.app.Activity;
-//import android.os.Bundle;
-//import android.view.Menu;
-//import android.view.MenuItem;
-//
-//public class CloseTabScreen extends Activity {
-//
-//	@Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.activity_close_tab_screen);
-//	}
-//}

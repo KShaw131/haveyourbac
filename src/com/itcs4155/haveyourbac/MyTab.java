@@ -44,22 +44,7 @@ public class MyTab extends Activity {
 	double totalTime;
 	boolean startTimeBool;
 	double startTime;
-	public ArrayList<graphPoints> bacPoints = new ArrayList<graphPoints>();
-	
-	public class graphPoints{
-		public double time;
-		public double bac;
-		public graphPoints(double time, double bac){
-			this.time = time;
-			this.bac = bac;
-		}
-		public double getTime() {
-			return time;
-		}
-		public double getBac() {
-			return bac;
-		}
-	}
+	public static ArrayList<GraphPoints> bacPoints = new ArrayList<GraphPoints>();
 	
 	private static boolean isFirstScreen;
 	
@@ -192,10 +177,10 @@ public class MyTab extends Activity {
         closeTab.setOnClickListener(new View.OnClickListener(){
         	
         	public void onClick(View view){
-        		//Used to goto my UserLoginPage
-        		Intent intent = new Intent(getBaseContext(), CloseTabScreen.class);
-        		startActivity(intent);
-        		finish();
+        		//Used to goto close tab with graph
+        		Intent i = new Intent(getBaseContext(), CloseTabScreen.class);
+        	    startActivity(i);
+        		//finish();
         	}
       });
         
@@ -287,7 +272,7 @@ public class MyTab extends Activity {
 						}
 						 
 						//Adds totaltime and bac level to arraylist for graph
-						bacPoints.add(new graphPoints(time,setAlc));
+						bacPoints.add(new GraphPoints(time,setAlc));
 						String testString = String.format("%.8f", setAlc);
 						TextView bac = (TextView)findViewById(R.id.bacValue);
 						txtbeer.setText(drink);
