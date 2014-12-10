@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3498db"
+    android:background="#34495e"
     tools:context="${relativePackage}.${activityClass}" >
 
     <EditText
@@ -15,7 +15,7 @@
         android:ems="10"
         android:hint="@string/enter_username"
         android:inputType="text"
-        android:textColorHint="#34495e" >
+        android:textColorHint="#FFFFFF" >
 
         <requestFocus />
     </EditText>
@@ -29,7 +29,7 @@
         android:ems="10"
         android:hint="Enter Password"
         android:inputType="textPassword"
-        android:textColorHint="#34495e" />
+        android:textColorHint="#FFFFFF" />
 
     <Button
         android:id="@+id/loginButton"
