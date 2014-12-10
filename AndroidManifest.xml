@@ -90,7 +90,9 @@
         </activity>
         <activity
             android:name=".DrinkList"
-            android:label="@string/title_activity_drink_list" >
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_drink_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".SingleItemView"
@@ -104,7 +106,9 @@
 
         <activity
             android:name=".WineList"
-            android:label="@string/title_activity_wine_list" >
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_wine_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".SingleItemViewWine"
@@ -112,7 +116,9 @@
         </activity>
         <activity
             android:name=".AlcoholList"
-            android:label="@string/title_activity_alcohol_list" >
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_alcohol_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".SingleItemViewAlcohol"

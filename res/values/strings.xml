@@ -3,7 +3,7 @@
 
     <string name="app_name">Have Your BAC</string>
     <string name="hello_world">Hello world!</string>
-    <string name="splash">HaveYourBAC is an application intended for entertainment purposes only.  HaveYourBAC should not be used in place of a Breathalyzer, nor are the calculations promised to be more accurate.  Remember to always drink responsibly, and NEVER drink and drive.  By clicking “Agree”, you understand that HaveYourBAC and any of its subsidiaries are not responsible for any actions you take during the usage of this application.</string>
+    <string name="splash">HaveYourBAC is an application intended for entertainment purposes only.  HaveYourBAC should not be used in place of a Breathalyzer, nor are the calculations promised to be more accurate. \n\n Remember to always drink responsibly, and NEVER drink and drive. \n\n By clicking “Agree”, you understand that HaveYourBAC and any of its subsidiaries are not responsible for any actions you take during the usage of this application.</string>
     <string name="agree">Agree</string>
     <string name="title_activity_user_login">UserLogin</string>
     <string name="title_activity_signup">Signup</string>
@@ -14,7 +14,7 @@
     <string name="title_activity_choose_drink">ChooseDrink</string>
     <string name="title_activity_close_tab_screen">CloseTabScreen</string>
     <string name="thank_you_for_using_have_your_bac_">Thank you for using Have Your BAC!</string>
-    <string name="close_tab">Close Tab</string>
+    <string name="close_tab">Close\nTab</string>
     <string name="debug">debug</string>
     <string name="title_activity_drink_list">DrinkList</string>
     <string name="title_activity_single_item_view">SingleItemView</string>
@@ -22,7 +22,7 @@
     <string name="title_activity_single_item_view_wine">SingleItemViewWine</string>
     <string name="title_activity_alcohol_list">AlcoholList</string>
     <string name="title_activity_single_item_view_alcohol">SingleItemViewAlcohol</string>
-    <string name="add_custom_drink">Add Custom Drink</string>
+    <string name="add_custom_drink">Add\nCustom\nDrink</string>
     <string name="title_activity_custom_drink_page">CustomDrinkPage</string>
     <string name="add_your_custom_drink">Add your custom drink</string>
     
