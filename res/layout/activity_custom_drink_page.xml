@@ -40,4 +40,16 @@
         android:text="@string/add_drink"
         android:textSize="20sp" />
 
+    <EditText
+        android:id="@+id/customContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typeSelector"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Enter alcohol content (0-100)%" >
+
+        <requestFocus />
+    </EditText>
+
 </RelativeLayout>
