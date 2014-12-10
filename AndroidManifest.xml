@@ -21,7 +21,6 @@
     <permission
         android:name="com.itcs4155.haveyourbac.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-
     <uses-permission android:name="com.itcs4155.haveyourbac.permission.C2D_MESSAGE" />
 
     <application

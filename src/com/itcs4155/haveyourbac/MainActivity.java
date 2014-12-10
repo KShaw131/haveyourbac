@@ -37,10 +37,8 @@ public class MainActivity extends Activity {
         	    }
         	  }
         	});
-        
         ParseInstallation.getCurrentInstallation().saveInBackground();
         ParsePush.subscribeInBackground("HaveYourBAC");
-        
         //Button to goto login screen
         final Button agree = (Button)findViewById(R.id.agree);
 		
@@ -50,8 +48,7 @@ public class MainActivity extends Activity {
         		//Used to goto my UserLoginPage
         		Intent intent = new Intent(MainActivity.this, UserLogin.class);
         		startActivity(intent);
-        		
-        		
+	
         	}
         
       });
