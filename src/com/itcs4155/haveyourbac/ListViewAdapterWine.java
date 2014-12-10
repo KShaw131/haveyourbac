@@ -2,6 +2,8 @@ package com.itcs4155.haveyourbac;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -82,7 +84,7 @@ public class ListViewAdapterWine extends BaseAdapter implements Filterable {
 				// Pass all data wine
 				intent.putExtra("wine", (Winelist.get(position).getWine()));
 				intent.putExtra("alcoholContent", (Winelist.get(position).getAlcoholContent()));
-				context.startActivity(intent);
+				((Activity) context).startActivityForResult(intent, 1);
 			}
 		});
 		return view;

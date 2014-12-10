@@ -2,6 +2,8 @@ package com.itcs4155.haveyourbac;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -97,7 +99,7 @@ public class ListViewAdapterAlcohol extends BaseAdapter implements Filterable {
 //				intent.putExtra("flag",
 //						(Drinklist.get(position).getFlag()));
 				// Start SingleItemView Class
-				context.startActivity(intent);
+				((Activity) context).startActivityForResult(intent, 1);
 			}
 		});
 		return view;

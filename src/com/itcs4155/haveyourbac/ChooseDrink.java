@@ -11,6 +11,13 @@ import android.widget.ImageButton;
 
 public class ChooseDrink extends Activity {
 
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == 1) {
+			setResult(1,data);
+			finish();
+		}
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,7 +32,7 @@ public class ChooseDrink extends Activity {
 			
     	public void onClick(View view){
     		Intent intent = new Intent(getBaseContext(), DrinkList.class);
-    		startActivity(intent);
+    		startActivityForResult(intent, 1);
     	}
     
 		});
@@ -33,7 +40,7 @@ public class ChooseDrink extends Activity {
 			
 	    	public void onClick(View view){
 	    		Intent intent = new Intent(getBaseContext(), AlcoholList.class);
-	    		startActivity(intent);
+	    		startActivityForResult(intent, 1);
 	    	}
 	    
 			});
@@ -41,7 +48,7 @@ public class ChooseDrink extends Activity {
 			
 	    	public void onClick(View view){
 	    		Intent intent = new Intent(getBaseContext(), WineList.class);
-	    		startActivity(intent);
+	    		startActivityForResult(intent, 1);
 	    	}
 	    
 			});

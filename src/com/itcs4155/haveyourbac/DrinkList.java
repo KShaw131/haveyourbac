@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -26,6 +27,13 @@ public class DrinkList extends Activity {
 	private List<Drink> Drinklist = null;
 	EditText inputSearch;
  
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == 1) {
+			setResult(1,data);
+			finish();
+		}
+	}
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

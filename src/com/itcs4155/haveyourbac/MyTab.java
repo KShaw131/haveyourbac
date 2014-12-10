@@ -19,6 +19,26 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MyTab extends Activity {
+	
+	private String drink = "";
+	private String brand = "";
+	private String alcoholContent = "";
+	private TextView txtbeer;
+	private TextView txtbrand;
+	private TextView txtalcoholcontent;
+	
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		
+		if (requestCode == 1) {
+			drink = data.getStringExtra("drink");
+			txtbeer.setText(drink);
+			brand = data.getStringExtra("brand");
+			txtbrand.setText(brand);
+			alcoholContent = data.getStringExtra("alcoholContent");
+			txtalcoholcontent.setText(alcoholContent);
+		}
+		
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +53,9 @@ public class MyTab extends Activity {
 		// Get the result of population
 		String alcoholContent = i.getStringExtra("alcoholContent");
 		
-		final TextView txtbeer = (TextView) findViewById(R.id.lastDrinkName);
-		final TextView txtbrand = (TextView) findViewById(R.id.lastDrinkDetails);
-		final TextView txtalcoholcontent = (TextView) findViewById(R.id.lastDrinkAlch);
+		txtbeer = (TextView) findViewById(R.id.lastDrinkName);
+		txtbrand = (TextView) findViewById(R.id.lastDrinkDetails);
+		txtalcoholcontent = (TextView) findViewById(R.id.lastDrinkAlch);
 
 		// Set results to the TextViews
 		txtbeer.setText(beer);
@@ -98,7 +118,7 @@ public class MyTab extends Activity {
 			
     	public void onClick(View view){
     		Intent intent = new Intent(getBaseContext(), ChooseDrink.class);
-    		startActivity(intent);
+    		startActivityForResult(intent, 1);
     	}
     
   });

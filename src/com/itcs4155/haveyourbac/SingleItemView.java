@@ -49,7 +49,8 @@ final Button add = (Button)findViewById(R.id.addWine);
 					intent.putExtra("drink", txtbeer.getText());
 					intent.putExtra("brand", txtbrand.getText());
 					intent.putExtra("alcoholContent", txtalcoholcontent.getText());
-					startActivity(intent);
+					setResult(1, intent);
+					finish();
 				}
 			
 			});
