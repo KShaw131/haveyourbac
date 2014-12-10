@@ -20,14 +20,13 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Parse.initialize(this, "MWiazlI1gWZiFz2rADwQ1Z3MKPrS5jVEYAHBko5W", "XNCKhjDQGUPuxgdKBHXrBW2xYHQgZHs8O9MpsZxr");
         setContentView(R.layout.activity_main);
         
-        
         //Setting application id and client key
-        Parse.initialize(this, "WxvvNBepff4Mh6v2PzR1SRHtcuibnbu76hxfJnuq", "zHl8ntxqYMpnAEfndojfroqo7TLgbOiYDGdJ6Hjf");
         
         //Subscribing app to receive push notifications from Parse
-        ParsePush.subscribeInBackground("", new SaveCallback() {
+        ParsePush.subscribeInBackground("HaveYourBAC", new SaveCallback() {
         	  @Override
         	  public void done(ParseException e) {
         	    if (e == null) {
@@ -38,9 +37,6 @@ public class MainActivity extends Activity {
         	  }
         	});
         
-        ParseInstallation.getCurrentInstallation().saveInBackground();
-        ParsePush.subscribeInBackground("HaveYourBAC");
-        
         //Button to goto login screen
         final Button agree = (Button)findViewById(R.id.agree);
 		
@@ -50,8 +46,6 @@ public class MainActivity extends Activity {
         		//Used to goto my UserLoginPage
         		Intent intent = new Intent(MainActivity.this, UserLogin.class);
         		startActivity(intent);
-        		
-        		
         	}
         
       });

@@ -3,6 +3,7 @@
 package com.itcs4155.haveyourbac;
 
 import com.parse.LogInCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import android.app.Activity;
@@ -19,6 +20,8 @@ public class UserLogin extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_login);
+		
+		Parse.initialize(this, "WxvvNBepff4Mh6v2PzR1SRHtcuibnbu76hxfJnuq", "zHl8ntxqYMpnAEfndojfroqo7TLgbOiYDGdJ6Hjf");
 		      
         final Button login = (Button)findViewById(R.id.loginButton);
         final Button signup = (Button)findViewById(R.id.signUpButton);

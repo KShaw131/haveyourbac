@@ -21,7 +21,6 @@
     <permission
         android:name="com.itcs4155.haveyourbac.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-
     <uses-permission android:name="com.itcs4155.haveyourbac.permission.C2D_MESSAGE" />
 
     <application
@@ -78,7 +77,9 @@
         </activity>
         <activity
             android:name=".MyTab"
-            android:label="@string/title_activity_my_tab" >
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_my_tab"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".ChooseDrink"
