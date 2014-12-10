@@ -6,7 +6,7 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <TextView
-        android:id="@+id/drinkTypeHeader"
+        android:id="@+id/userProfileHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -46,7 +46,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_alignLeft="@+id/chooseWineButton"
-        android:layout_below="@+id/drinkTypeHeader"
+        android:layout_below="@+id/userProfileHeader"
         android:layout_marginTop="8dp"
         android:background="@drawable/beer_final"
         android:scaleType="fitXY"

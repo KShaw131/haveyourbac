@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3498db"
+    android:background="#34495e"
     tools:context="${relativePackage}.${activityClass}" >
 
     <TextView
@@ -13,6 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="@string/add_your_custom_drink"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:typeface="normal" />
 
@@ -24,14 +25,19 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
         android:entries="@array/drink_arrays"
-        android:prompt="@string/drink_prompt" />
+        android:popupBackground="#95a5a6"
+        android:prompt="@string/drink_prompt"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/saveCustomDrink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/add_drink" />
+        android:layout_marginBottom="50dp"
+        android:background="#a6FFFFFF"
+        android:text="@string/add_drink"
+        android:textSize="20sp" />
 
 </RelativeLayout>

@@ -1,52 +1,61 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="#2C3E50" >
 
     <TextView
         android:id="@+id/winelabel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
         android:text="Wine:		"
-        android:textSize="25sp" />
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/wine2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/winelabel2"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/winelabel2"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF"
         android:textSize="25sp" />
+
 
     <TextView
         android:id="@+id/alcoholcontentlabel4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/winelabel2"
-        android:text="Alcohol Content:	"
-        android:textSize="25sp" />
-    
-    <TextView
-        android:id="@+id/alcoholcontent4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/wine2"
-        android:layout_toRightOf="@+id/alcoholcontentlabel4"
-        android:textSize="25sp" />
+        android:layout_marginTop="20dp"
+        android:text="Alcohol Content:	"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/addWine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginBottom="70dp"
+        android:background="#a6FFFFFF"
         android:text="Add Drink!" />
 
-    <Button
-        android:id="@+id/cancelWine"
+    <TextView
+        android:id="@+id/alcoholcontent4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/addWine"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"
-        android:text="Cancel" />
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/alcoholcontentlabel4"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" />
 
 </RelativeLayout>

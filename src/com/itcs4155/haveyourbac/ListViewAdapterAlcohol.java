@@ -71,6 +71,12 @@ public class ListViewAdapterAlcohol extends BaseAdapter implements Filterable {
 		} else {
 			holder = (ViewHolder) view.getTag();
 		}
+		if (position % 2 == 0){
+		    view.setBackgroundResource(R.drawable.alterselector1);
+		} else {
+		    view.setBackgroundResource(R.drawable.alterselector2);
+		}
+		
 		// Set the results into TextViews
 		holder.drink.setText(Alcohollist.get(position).getDrink());
 		holder.type.setText(Alcohollist.get(position).getType());

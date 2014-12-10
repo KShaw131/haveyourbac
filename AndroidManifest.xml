@@ -92,7 +92,8 @@
             android:name=".DrinkList"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_drink_list"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".SingleItemView"
@@ -108,7 +109,8 @@
             android:name=".WineList"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_wine_list"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".SingleItemViewWine"
@@ -118,7 +120,8 @@
             android:name=".AlcoholList"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_alcohol_list"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".SingleItemViewAlcohol"

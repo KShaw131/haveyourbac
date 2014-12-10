@@ -35,9 +35,9 @@ public class SingleItemViewWine extends Activity {
 	 
 			// Set results to the TextViews
 			txtwine.setText(wine);
-			txtalcoholcontent2.setText(alcoholContent);
+			txtalcoholcontent2.setText(alcoholContent + "%");
 	 
-	final Button cancel = (Button)findViewById(R.id.cancelWine);
+
 	final Button add = (Button)findViewById(R.id.addWine);
 
 				add.setOnClickListener(new View.OnClickListener(){
@@ -54,13 +54,6 @@ public class SingleItemViewWine extends Activity {
 				
 				});
 			
-	        cancel.setOnClickListener(new View.OnClickListener(){
-	        	
-	        	public void onClick(View view){
-	        		//Used to goto my UserLoginPage
-	        		finish();
-	        	}
-	        
-	      });
+
 		}
 	}

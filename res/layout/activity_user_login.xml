@@ -15,10 +15,8 @@
         android:ems="10"
         android:hint="@string/enter_username"
         android:inputType="text"
-        android:textColorHint="#FFFFFF" >
-
-        <requestFocus />
-    </EditText>
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF" />
 
     <EditText
         android:id="@+id/password"
@@ -29,16 +27,8 @@
         android:ems="10"
         android:hint="Enter Password"
         android:inputType="textPassword"
+        android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF" />
-
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/password"
-        android:layout_below="@+id/password"
-        android:text="Login"
-        android:textColorHint="#34495e" />
 
     <Button
         android:id="@+id/signUpButton"
@@ -47,6 +37,7 @@
         android:layout_alignBaseline="@+id/loginButton"
         android:layout_alignBottom="@+id/loginButton"
         android:layout_alignRight="@+id/password"
+        android:background="#a6FFFFFF"
         android:text="Sign Up"
         android:textColorHint="#34495e" />
 
@@ -57,5 +48,17 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/bac_icon_large" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/password"
+        android:layout_below="@+id/password"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="15dp"
+        android:background="#a6FFFFFF"
+        android:text="Login"
+        android:textColorHint="#34495e" />
 
 </RelativeLayout>

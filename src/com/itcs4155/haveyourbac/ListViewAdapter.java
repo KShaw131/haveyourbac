@@ -72,6 +72,11 @@ public class ListViewAdapter extends BaseAdapter implements Filterable {
 		} else {
 			holder = (ViewHolder) view.getTag();
 		}
+		if (position % 2 == 0){
+		    view.setBackgroundResource(R.drawable.alterselector1);
+		} else {
+		    view.setBackgroundResource(R.drawable.alterselector2);
+		}
 		// Set the results into TextViews
 		holder.beer.setText(Drinklist.get(position).getBeer());
 		holder.brand.setText(Drinklist.get(position).getBrand());

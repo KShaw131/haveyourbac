@@ -23,7 +23,8 @@
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/searchTextBeer" >
+        android:layout_below="@+id/searchTextBeer"
+        android:background="#000000" >
 
     </ListView>
     
