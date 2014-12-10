@@ -40,7 +40,11 @@ public class CustomDrinkPage extends Activity {
 		  public void onClick(View v) {		  
 		    Toast.makeText(CustomDrinkPage.this, "OnClickListener : " + "\nSpinner 1 : "+ String.valueOf(drinkTypeSelector.getSelectedItem()), Toast.LENGTH_SHORT).show();
 		    Intent intent = new Intent(getBaseContext(), MyTab.class);
-	        startActivity(intent);
+		    intent.putExtra("customType", String.valueOf(drinkTypeSelector.getSelectedItem()));
+		    String customAlcoholContent = "20.0";
+		    intent.putExtra("customAlcoholContent", customAlcoholContent);
+	        setResult(2, intent);
+	        finish();
 		  }
 	 
 		});

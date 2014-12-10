@@ -22,11 +22,12 @@ public class MyTab extends Activity {
 	
 	private String drink = "";
 	private String brand = "";
-	private String alcoholContent = "";
+	private String content = "";
 	private TextView txtbeer;
 	private TextView txtbrand;
 	private TextView txtalcoholcontent;
 	private double alcoholInOunces;
+	private double lastDrinkOunces;
 	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		
@@ -35,12 +36,45 @@ public class MyTab extends Activity {
 			txtbeer.setText(drink);
 			brand = data.getStringExtra("brand");
 			txtbrand.setText(brand);
-			alcoholContent = data.getStringExtra("alcoholContent");
-			txtalcoholcontent.setText(alcoholContent);
+			content = data.getStringExtra("alcoholContent");
+			txtalcoholcontent.setText(content);
 			double myAlcoholInOunces = data.getDoubleExtra("ounces", 0);
-			double myContent = Double.parseDouble(alcoholContent);
+			double myContent = Double.parseDouble(content);
+			alcoholInOunces += myContent * myAlcoholInOunces * 0.01;
+			lastDrinkOunces = myAlcoholInOunces;
+			calculateBAC();
+		}
+		if(resultCode == 2){
+			double myAlcoholInOunces;
+			double myContent;
+			String switchString = data.getStringExtra("customType");
+			switch (switchString){
+			case "Beer":
+				drink = "Custom Beer";
+				myAlcoholInOunces = 12;
+				myContent = 6; //change me
+				break;
+			case "Wine":
+				drink = "Custom Wine";
+				myAlcoholInOunces = 5;
+				myContent = 15; //change me
+				break;
+			default:
+				drink = "Custom Liquor";
+				myAlcoholInOunces = 1.5;
+				myContent = 30;
+			}
+			lastDrinkOunces = myAlcoholInOunces;
+			content = data.getStringExtra("customAlcoholContent");
+			txtalcoholcontent.setText(content);
+			myContent = Double.parseDouble(content); 
+			
+			txtbeer.setText(drink);
+			txtbrand.setText("");
+			
 			alcoholInOunces += myContent * myAlcoholInOunces * 0.01;
 			calculateBAC();
+			Log.d("Error:", switchString);
 		}
 		
 	}
@@ -73,6 +107,23 @@ public class MyTab extends Activity {
 		
 		/*Calculator*/
 		calculateBAC();
+		
+		/* Reorder Drink Button*/
+final Button reorder = (Button)findViewById(R.id.reorderDrink);
+		
+		reorder.setOnClickListener(new View.OnClickListener(){
+			public void onClick(View view){
+				double myContent = Double.parseDouble(content); 
+				
+				txtbeer.setText(drink);
+				txtbrand.setText("");
+				
+				alcoholInOunces += myContent * lastDrinkOunces * 0.01;
+				calculateBAC();
+				
+	    	}  
+  });
+		
 				
 		/*Choose Drink Button*/
 		
@@ -103,7 +154,7 @@ public class MyTab extends Activity {
         custom.setOnClickListener(new View.OnClickListener(){
         public void onClick(View view){
         Intent intent = new Intent(getBaseContext(), CustomDrinkPage.class);
-        startActivity(intent);
+        startActivityForResult(intent,1);
         }
         });
         
